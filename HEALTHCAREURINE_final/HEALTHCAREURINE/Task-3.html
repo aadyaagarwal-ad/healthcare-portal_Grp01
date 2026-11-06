@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the System - Urine Test Strip Reader</title>
+    <link rel="stylesheet" href="Task-3.css">
+    
+</head>
+<body>
+    <center>
+        <!-- HEADER SECTION -->
+        <table class="header-table" id="header-section" cellpadding="0" cellspacing="0">
+            <tr>
+                <!-- TOP LEFT LOGO -->
+                <td class="logo-box" id="logo-container">
+                    <a href="index.html" title="Internal Logo Link">
+                        <img src="logo.png" alt="Healthcare Logo" id="main-logo" style="max-width: 100px; height: auto;" />
+                    </a>
+                    <br>
+                    <font size="2" color="#B2DFDB"><b>ABC Healthcare</b></font>
+                </td>
+                
+                <!-- TOP CENTER TO RIGHT BANNER -->
+                <td class="banner-box" id="banner-container">
+                    <div class="tooltip-container" id="system-tooltip">
+                        <font color="white" size="6">
+                            <b>URINE TEST STRIP READER SYSTEM</b>
+                        </font>
+                        
+                    </div>
+                    <br>
+                    <font color="#B2DFDB" size="4">
+                        ABC Healthcare Centre – Urine Test Centre Banner
+                    </font>
+                    <br>
+                    <font color="#EAF6F6" size="2">
+                        Software Version: <b>v2.4.0</b> | Year: <b>2026</b>
+                    </font>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- ABOUT THE SYSTEM SECTION -->
+        <table width="90%" border="0" cellpadding="15" bgcolor="white">
+            <tr bgcolor="#B2DFDB">
+                <th align="left">
+                    <font size="4" color="#006666">
+                        <b>About the System</b>
+                    </font>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p style="line-height: 1.6; font-size: 15px; margin: 0;">
+                        The <b>Urine Test Strip Reader</b> is designed to make urine analysis more objective, automated, and reliable at the point of care. Conventional test strips often require visual comparison with a printed colour chart, which can lead to differences in interpretation. This system aims to use <b>controlled illumination, Computer Vision, and AI-based analysis</b> to process all <b>10 reagent pads</b> and generate continuous numerical results.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- OBJECTIVES SECTION -->
+        <table width="90%" border="0" cellpadding="12" bgcolor="white">
+            <tr bgcolor="#B2DFDB">
+                <th align="left">
+                    <font size="4" color="#006666">
+                        <b>Objectives</b>
+                    </font>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p style="font-size: 15px; margin-top: 5px;">The key objectives of the system are:</p>
+                    <ul style="line-height: 1.8; font-size: 15px; margin-bottom: 0;">
+                        <li>To reduce errors caused by ambient lighting and subjective visual interpretation.</li>
+                        <li>To automatically detect and analyze all 10 reagent pads on a urine test strip.</li>
+                        <li>To extract colour information and map it to continuous analyte concentrations using non-linear regression or deep learning.</li>
+                        <li>To automate the workflow from strip placement to digital report generation.</li>
+                        <li>To securely link results with a patient ID and timestamp for monitoring and record management.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- WORKING PRINCIPLE SECTION -->
+        <table width="90%" border="0" cellpadding="15" bgcolor="white">
+            <tr bgcolor="#B2DFDB">
+                <th align="left">
+                    <font size="4" color="#006666">
+                        <b>Working Principle</b>
+                    </font>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p style="line-height: 1.6; font-size: 15px;">
+                        The system operates as a standalone point-of-care diagnostic unit powered by a <b>Raspberry Pi</b>. The urine test strip is placed inside an opaque black-box enclosure containing a strip holder, calibrated LED illumination, and a camera module.
+                    </p>
+                    <p style="line-height: 1.6; font-size: 15px;">
+                        First, the biochemical reaction is allowed to develop for a timed <b>120-second period</b>. The camera then captures the strip under uniform and controlled lighting conditions. An <b>OpenCV-based Computer Vision pipeline</b> isolates each reagent pad and calculates its average RGB values.
+                    </p>
+                    <p style="line-height: 1.6; font-size: 15px; margin-bottom: 0;">
+                        These colour values are then passed to a trained <b>non-linear regression model</b>, which predicts numerical concentrations for the analytes. The final results are compiled into a structured report and securely logged for clinical review.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- BENEFITS SECTION -->
+        <table width="90%" border="0" cellpadding="12" bgcolor="white">
+            <tr bgcolor="#B2DFDB">
+                <th align="left">
+                    <font size="4" color="#006666">
+                        <b>Benefits</b>
+                    </font>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p style="font-size: 15px; margin-top: 5px;">
+                        The system offers several potential benefits for healthcare and point-of-care testing:
+                    </p>
+                    <ul style="line-height: 1.8; font-size: 15px;">
+                        <li><b>Objective Analysis:</b> Reduces dependence on subjective visual comparison of colours.</li>
+                        <li><b>Controlled Environment:</b> The black-box enclosure and calibrated LED lighting help minimize environmental variation.</li>
+                        <li><b>Automation:</b> The process automatically performs timed image capture, pad analysis, and result generation.</li>
+                        <li><b>Continuous Results:</b> The AI model is designed to provide numerical concentrations rather than only categorical ranges.</li>
+                        <li><b>Standalone Operation:</b> The complete pipeline runs on the device without requiring a smartphone or external laptop.</li>
+                        <li><b>Secure Data Management:</b> Results can be linked to patient information and securely transmitted to a hospital-compatible database.</li>
+                        <li><b>Clinical Decision Support:</b> Abnormal values can be highlighted for clinician or pathologist review.</li>
+                    </ul>
+                    <hr color="#B2DFDB">
+                    <p style="font-size: 13px; color: #555555; margin-bottom: 0;">
+                        <b>Healthcare Note:</b> The system is intended to function as a clinical decision-support tool. Flagged or abnormal results should be reviewed by a qualified clinician or pathologist before clinical action is taken.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+         <!-- BOTTOM MOST FOOTER BANNER -->
+        <table class="footer-table" id="footer-section" cellpadding="15">
+            <tr>
+                <td align="center">
+                    <font color="#ffffff" size="3">
+                        <b>ABC Healthcare Centre</b> | Urine Test Strip Reader System
+                    </font>
+                    <br>
+                    <font color="#B2DFDB" size="2">
+                        <b>Call:</b> +91 12345 67890 &nbsp;|&nbsp; 
+                        <b>Email:</b> support@abchealthcare.com &nbsp;|&nbsp; 
+                        <b>Hospital Name:</b> ABC Healthcare Centre & Research Institute
+                    </font>
+                    <br><br>
+                    <font color="#ffffff" size="1">
+                        © 2026 ABC Healthcare. All Rights Reserved. | System Version 2.4.0
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

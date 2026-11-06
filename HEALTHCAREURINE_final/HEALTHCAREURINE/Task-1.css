@@ -1,0 +1,196 @@
+
+        /* Base Styling & Colors */
+        body {
+            background-color: #EAF6F6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+
+        /* Tooltip Container Styling */
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 280px;
+            background-color: #004d4d;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 1000;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            font-size: 13px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+        }
+
+        /* Top Header & Banner Styling */
+        .header-table {
+            width: 95%;
+            border: 0;
+            background-color: #006666;
+            margin: 15px auto 0 auto;
+            border-collapse: collapse;
+        }
+
+        .logo-box {
+            background-color: #004d4d;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            width: 15%;
+            border-right: 2px solid #B2DFDB;
+        }
+
+        .banner-box {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 85%;
+        }
+
+        /* 8 Navigation Buttons Row */
+        .nav-table {
+            width: 95%;
+            border: 0;
+            background-color: #B2DFDB;
+            margin: 0 auto 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-table td {
+            text-align: center;
+            padding: 10px 4px;
+            width: 12.5%; /* 100% / 8 columns */
+        }
+
+        .nav-btn {
+            display: block;
+            width: 95%;
+            margin: 0 auto;
+            padding: 10px 2px;
+            background-color: #006666;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+            border-radius: 4px;
+            text-align: center;
+            box-sizing: border-box;
+            transition: background-color 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #004d4d;
+            color: #B2DFDB;
+        }
+        /* Dropdown Menu */
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 2.5%;
+    width: 95%;
+    background-color: #006666;
+    z-index: 2000;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+/* Show dropdown when mouse is over the button */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change main button when dropdown is open */
+
+.dropdown:hover > .nav-btn {
+    background-color: #004d4d;
+    color: #B2DFDB;
+}
+
+/* Dropdown options */
+
+.dropdown-content a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 10px 5px;
+
+    background-color: #006666;
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+    font-size: 11px;
+
+    text-align: center;
+
+    border-top: 1px solid #B2DFDB;
+}
+
+/* Dropdown option hover */
+
+.dropdown-content a:hover {
+    background-color: #004d4d;
+    color: #B2DFDB;
+}
+
+        /* Video Area */
+        .video-section {
+            width: 95%;
+            margin: 0 auto 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .video-frame {
+            width: 100%;
+            border: 4px solid #B2DFDB;
+            background-color: #EAF6F6;
+            box-sizing: border-box;
+            border-collapse: collapse;
+        }
+
+        .bg-video-player {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        /* Bottom Footer Banner */
+        .footer-table {
+            width: 100%;
+            border: 0;
+            background-color: #006666;
+            color: white;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }

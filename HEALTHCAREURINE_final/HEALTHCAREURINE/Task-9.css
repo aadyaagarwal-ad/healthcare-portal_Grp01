@@ -1,0 +1,162 @@
+/* Header Table Styles */
+.header-table {
+    width: 95%;
+    border: 0;
+    background-color: #006666;
+    margin: 15px auto 0 auto;
+    border-collapse: collapse;
+}
+
+.logo-box {
+    background-color: #004d4d;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    width: 15%;
+    border-right: 2px solid #B2DFDB;
+}
+
+.banner-box {
+    padding: 20px;
+    text-align: center;
+    color: white;
+    width: 85%;
+}
+
+body {
+    background-color: #EAF6F6;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Introduction Styles */
+.intro {
+    background-color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.intro h2 {
+    color: #006666;
+    font-size: 22px;
+    margin: 0 0 10px 0;
+}
+
+.intro p {
+    margin: 0;
+}
+
+/* Common Card & Section Styles */
+.card {
+    background-color: white;
+}
+
+.card-header {
+    background-color: #B2DFDB;
+    color: #006666;
+    font-size: 18px;
+    margin: 0;
+    padding: 12px;
+    text-align: left;
+}
+
+.card-body {
+    padding: 15px 12px;
+    text-align: center;
+}
+
+/* Media Framing Elements */
+.media-frame {
+    background-color: #EAF6F6;
+    border: 4px solid #B2DFDB;
+    padding: 8px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+video {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 600 / 350;
+    display: block;
+}
+
+.caption {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* Audio Section Specifics */
+.audio-frame {
+    width: 80%;
+    padding: 15px;
+}
+
+.audio-title {
+    color: #006666;
+    margin: 0 0 10px 0;
+}
+
+audio {
+    max-width: 100%;
+}
+
+/* Google Map Specifics */
+.location-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.map-frame iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    border: 0;
+    display: block;
+}
+
+/* Hospital Information Table */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table td {
+    padding: 12px;
+}
+
+.label-col {
+    width: 30%;
+}
+
+/* Noscript Section */
+.noscript-banner {
+    background-color: #B2DFDB;
+    color: #006666;
+    text-align: center;
+    padding: 12px;
+}
+
+.noscript-banner p {
+    margin: 4px 0;
+}
+
+/* Footer Table Styles */
+.footer-table {
+    width: 100%;
+    border: 0;
+    background-color: #006666;
+    color: white;
+    margin-top: 20px;
+    border-collapse: collapse;
+}

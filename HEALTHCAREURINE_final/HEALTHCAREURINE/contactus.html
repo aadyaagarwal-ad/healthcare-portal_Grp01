@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ABC Healthcare Centre</title>
+    <link rel="stylesheet" href="contactus.css">
+    <style>
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background-color: #EAF6F6;
+        }
+
+        /* Top Header Structure */
+        .header-container {
+            width: 100%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Top Left Logo (Internal Link) */
+        .logo-box {
+            width: 20%;
+            height: 100%;
+            background-color: #004d4d;
+            padding: 10px;
+            text-align: center;
+            border-right: 2px solid #B2DFDB;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-box img {
+            max-width: 80px;
+            max-height: 50px;
+            height: auto;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .logo-box span {
+            color: #B2DFDB;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Top Centre to Top Right Banner */
+        .banner-box {
+            width: 80%;
+            height: 100%;
+            background-color: #006666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* Section occupying full page space strictly BELOW the banner */
+        .main-section {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 90px);
+            overflow: hidden;
+        }
+
+        /* Continuous Looping Video Element placed inside main section behind the box */
+        .content-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+            outline: none;
+            z-index: 1;
+        }
+
+        /* Overlay Layout for Centered Box */
+        .content-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        /* Centered Contact Box */
+        .contact-box {
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 4px solid #B2DFDB;
+            border-radius: 8px;
+            padding: 35px 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 480px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-box h2 {
+            color: #006666;
+            font-size: 22px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #B2DFDB;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .info-group {
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .info-label {
+            color: #006666;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 18px;
+            color: #004d4d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .info-value:hover {
+            color: #006666;
+        }
+
+        /* Emergency Services Button */
+        .emergency-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px 20px;
+            background-color: #006666;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .emergency-btn:hover {
+            background-color: #004d4d;
+            color: #B2DFDB;
+        }
+    </style>
+</head>
+<body id="contact-page" class="portal-body" title="Contact Us - Urine Test Strip Reader System">
+
+    <!-- TOP HEADER / BANNER SECTION -->
+    <div class="header-container" id="top-header">
+        <!-- TOP LEFT LOGO (INTERNAL LINK) -->
+        <div class="logo-box" id="logo-wrapper">
+            <a href="index.html" title="Go to Home Page">
+                <img src="logo.png" alt="ABC Healthcare Logo" id="internal-logo" />
+            </a>
+            <span>ABC HEALTHCARE</span>
+        </div>
+
+        <!-- TOP CENTRE TO TOP RIGHT BANNER -->
+        <div class="banner-box" id="main-banner">
+            CONTACT US
+        </div>
+    </div>
+
+    <!-- MAIN SECTION BELOW BANNER -->
+    <div class="main-section" id="main-section">
+        <!-- CONTINUOUS LOOPING VIDEO COVERING FULL LENGTH BELOW BANNER BEHIND BOX -->
+        <video class="content-video" autoplay muted loop playsinline id="internal-video">
+            <source src="contactusvid.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+        <!-- CENTERED CONTACT BOX OVERLAY -->
+        <div class="content-overlay" id="main-overlay">
+            <div class="contact-box" id="center-contact-card">
+                <h2>Hospital Contact</h2>
+
+                <!-- CONTACT NUMBER -->
+                <div class="info-group">
+                    <span class="info-label">Contact Number</span>
+                    <a href="tel:+911234567890" class="info-value">+91 12345 67890</a>
+                </div>
+
+                <!-- EMAIL ADDRESS -->
+                <div class="info-group">
+                    <span class="info-label">Email Address</span>
+                    <a href="mailto:support@abchealthcare.com" class="info-value">support@abchealthcare.com</a>
+                </div>
+
+                <!-- EMERGENCY SERVICES BUTTON -->
+                <a href="Task-9.html" class="emergency-btn" id="btn-emergency" title="Access 24x7 Emergency Services">
+                    Emergency Services
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

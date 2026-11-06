@@ -1,0 +1,7 @@
+{
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingComments": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.autoClosingOvertype": "always",
+    "editor.autoClosingDelete": "always"
+}

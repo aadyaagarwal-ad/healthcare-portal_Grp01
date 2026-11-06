@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urine Test App - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-text">
+            <img src="logo.png" alt="App Logo" class="logo">
+            <h1>URINE TEST APP</h1>
+            <p>URINE TEST PARAMETERS AND HEALTHCARE INFORMATION</p>
+        </div>
+        <!-- Replace logo.png with your internal image path -->
+        
+    </div>
+
+    <div class="main-container">
+        <!-- Replace video URL with your external video link if needed -->
+        <video class="bg-video" autoplay loop muted playsinline>
+            <source src="login_vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="login-box">
+            <div class="login-title">
+                User Login
+            </div>
+            <div class="login-content">
+                <form onsubmit="loginUser(event)">
+                    <label for="username">
+                        Username
+                    </label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+                    <label for="password">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                    <button
+                        type="submit"
+                        class="login-button">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <table class="footer-table" id="footer-section" cellpadding="15">
+            <tr>
+                <td align="center">
+                    <font color="#ffffff" size="3">
+                        <b>ABC Healthcare Centre</b> | Urine Test Strip Reader System
+                    </font>
+                    <br>
+                    <font color="#B2DFDB" size="2">
+                        <b>Call:</b> +91 12345 67890 &nbsp;|&nbsp; 
+                        <b>Email:</b> support@abchealthcare.com &nbsp;|&nbsp; 
+                        <b>Hospital Name:</b> ABC Healthcare Centre & Research Institute
+                    </font>
+                    <br><br>
+                    <font color="#ffffff" size="1">
+                        © 2026 ABC Healthcare. All Rights Reserved. | System Version 2.4.0
+                    </font>
+                </td>
+            </tr>
+        </table>
+
+    <script>
+        function loginUser(event) {
+            event.preventDefault();
+            window.location.href = "Task-1.html";
+        }
+    </script>
+</body>
+</html>

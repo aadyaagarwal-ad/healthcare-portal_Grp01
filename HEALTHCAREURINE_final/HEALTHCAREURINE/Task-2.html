@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urine Test Strip Reader</title>
+    <link rel="stylesheet" href="Task-2.css">
+    
+</head>
+<body>
+    <center>
+        <table class="header-table" id="header-section" cellpadding="0" cellspacing="0">
+            <tr>
+                <!-- TOP LEFT LOGO -->
+                <td class="logo-box" id="logo-container">
+                    <a href="index.html" title="Internal Logo Link">
+                        <img src="logo.png" alt="Healthcare Logo" id="main-logo" style="max-width: 100px; height: auto;" />
+                    </a>
+                    <br>
+                    <font size="2" color="#B2DFDB"><b>ABC Healthcare</b></font>
+                </td>
+                
+                <!-- TOP CENTER TO RIGHT BANNER -->
+                <td class="banner-box" id="banner-container">
+                    <div class="tooltip-container" id="system-tooltip">
+                        <font color="white" size="6">
+                            <b>URINE TEST STRIP READER SYSTEM</b>
+                        </font>
+                        
+                    </div>
+                    <br>
+                    <font color="#B2DFDB" size="4">
+                        ABC Healthcare Centre – Urine Test Centre Banner
+                    </font>
+                    <br>
+                    <font color="#EAF6F6" size="2">
+                        Software Version: <b>v2.4.0</b> | Year: <b>2026</b>
+                    </font>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- OVERVIEW & DISCLAIMER SECTION -->
+        <table width="90%" border="0" cellpadding="15" bgcolor="white">
+            <tr>
+                <td>
+                    <p style="line-height: 1.6; font-size: 15px;">
+                        The <b>Urine Test Strip Reader</b> is a point-of-care diagnostic system designed to automatically analyze urine test strips using <b>controlled illumination, computer vision, and AI-based concentration prediction</b>. Instead of relying on subjective visual comparison with a printed colour chart, the system captures and processes the colour changes of all <b>10 reagent pads</b> to generate structured numerical results.
+                    </p>
+                    <hr color="#B2DFDB">
+                    <p style="font-size: 13px; color: #555555;">
+                        <b>Medical Disclaimer:</b> The Urine Test Strip Reader is intended to support screening and clinical decision-making. Results must be reviewed and interpreted by a qualified clinician or pathologist before any diagnosis or treatment decision is made.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- DIAGNOSTIC PROCESS SECTION -->
+        <table width="90%" border="0" cellpadding="12" bgcolor="white">
+            <tr bgcolor="#B2DFDB">
+                <th align="left">
+                    <font size="4" color="#006666">
+                        <b>Diagnostic Process</b>
+                    </font>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="line-height: 1.8; font-size: 15px;">
+                        <li><b>Sample Preparation:</b> A urine test strip is dipped into the patient's urine sample and placed inside the device holder. A biochemical reaction begins across all <b>10 reagent pads.</b></li>
+                        <li><b>Timed Reaction:</b> The system waits for <b>120 seconds</b> to allow the colour reactions to develop. During this period, no image is captured.</li>
+                        <li><b>Controlled Image Capture:</b> After the reaction period, a Raspberry Pi camera automatically captures an image of the strip inside a sealed black-box enclosure. Brightness-regulated LED illumination provides uniform and calibrated lighting, helping reduce errors caused by ambient light.</li>
+                        <li><b>Computer Vision Analysis:</b> An OpenCV-based computer vision pipeline isolates each of the <b>10 reagent pads</b> and calculates the average RGB colour values for every pad.</li>
+                        <li><b>AI-Based Concentration Prediction:</b> The extracted RGB information is processed by a trained non-linear regression model. The model maps the colour data to continuous numerical concentrations for the different urine parameters.</li>
+                        <li><b>Digital Report Generation:</b> The system generates a structured digital report containing the <b>patient ID, timestamp, and predicted analyte concentrations.</b> Results can then be securely stored and transmitted to a hospital-compatible database.</li>
+                        <li><b>Clinical Review:</b> Abnormal or out-of-range results are highlighted for clinical attention. A qualified clinician or pathologist reviews the findings before any clinical action is taken.</li>
+                    </ul>
+                    <p style="font-size: 13px; color: #555555;">
+                        <b>Important:</b> The device output should be used as clinical decision support and should not replace professional medical judgement or confirmatory diagnostic testing where required.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- DIAGNOSTIC FLOWCHART DIAGRAM -->
+        <table width="90%" border="0" cellpadding="15" bgcolor="white">
+            <tr bgcolor="#B2DFDB">
+                <th align="center">
+                    <font size="4" color="#006666">
+                        <b>Diagnostic Flow Chart</b>
+                    </font>
+                </th>
+            </tr>
+            <tr>
+                <td align="center">
+                    <br>
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td align="center"><div class="flow-box">Urine Sample</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">Dip Test Strip</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">Place Strip in Device</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">120-Second Reaction Period</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">Controlled LED Illumination + Camera Capture</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">Computer Vision Segments 10 Reagent Pads</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">RGB Feature Extraction</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">AI-Based Concentration Prediction</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">Digital Report & Secure Data Logging</div></td>
+                        </tr>
+                        <tr><td class="flow-arrow">&#8595;</td></tr>
+                        <tr>
+                            <td align="center"><div class="flow-box">Clinical Review</div></td>
+                        </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- IMPORTANT TEST PARAMETERS SECTION -->
+        <table width="90%" border="0" cellpadding="12" bgcolor="white">
+            <tr bgcolor="#B2DFDB">
+                <th colspan="2" align="left">
+                    <font size="4" color="#006666">
+                        <b>Important Test Parameters (10 Key Parameters)</b>
+                    </font>
+                </th>
+            </tr>
+            <tr>
+                <td width="50%" valign="top">
+                    <p><b>Glucose:</b> Reported in <b>mg/dL</b>. Elevated readings should be reviewed in the appropriate clinical context.</p>
+                    <p><b>Protein:</b> Reported in <b>mg/dL</b> and used as an important parameter during routine urinalysis.</p>
+                    <p><b>pH (<abbr title="Potential of Hydrogen">Potential of Hydrogen</abbr>):</b> Indicates the acidity or alkalinity of urine.</p>
+                    <p><b>Ketones:</b> Reported in <b>mg/dL</b> and used as part of metabolic assessment.</p>
+                    <p><b>Blood / <abbr title="Red Blood Cells">RBC</abbr>:</b> Indicates the detection of blood-related components in the urine sample.</p>
+                </td>
+                <td width="50%" valign="top">
+                    <p><b>Bilirubin:</b> An important parameter that may contribute to liver-related clinical assessment.</p>
+                    <p><b>Urobilinogen:</b> Supports the interpretation of liver and metabolic processes.</p>
+                    <p><b>Nitrite:</b> A clinically relevant parameter that may be considered when assessing possible <abbr title="Urinary Tract Infection">UTI</abbr>.</p>
+                    <p><b>Leucocytes / <abbr title="White Blood Cells">WBC</abbr>:</b> May indicate the presence of white blood cells and should be interpreted by a healthcare professional.</p>
+                    <p><b>Specific Gravity / <abbr title="Specific Gravity">SG</abbr>:</b> Indicates the concentration of urine.</p>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- EXAMPLE DIAGNOSTIC RESULTS TABLE -->
+        <table width="90%" border="1" cellpadding="10" cellspacing="0" bgcolor="white" style="border-collapse: collapse; border-color: #B2DFDB;">
+            <tr bgcolor="#B2DFDB">
+                <th colspan="8" align="center">
+                    <font size="4" color="#006666">
+                        <b>Example Diagnostic Results</b>
+                    </font>
+                </th>
+            </tr>
+            <tr bgcolor="#E0F2F1" align="center">
+                <th>Glucose</th>
+                <th>Protein</th>
+                <th>pH</th>
+                <th>Ketones</th>
+                <th>Blood / RBC</th>
+                <th>Nitrite</th>
+                <th>Leucocytes / WBC</th>
+                <th>Specific Gravity</th>
+            </tr>
+            <tr align="center">
+                <td>100 mg/dL</td>
+                <td>30 mg/dL</td>
+                <td>6.5</td>
+                <td>0 mg/dL</td>
+                <td>Negative</td>
+                <td>Negative</td>
+                <td>Negative</td>
+                <td>1.020</td>
+            </tr>
+        </table>
+        <table width="90%" border="0" cellpadding="5" bgcolor="white">
+            <tr>
+                <td>
+                    <p style="font-size: 12px; color: #666666; margin: 0;">
+                        <b>Medical Disclaimer:</b> These example values are for interface demonstration only. Test results should be interpreted according to the relevant test-strip manufacturer's instructions, clinical reference intervals, and professional medical judgement.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- HEALTHCARE INSTRUCTIONS SECTION -->
+        <table width="90%" border="0" cellpadding="12" bgcolor="white">
+            <tr bgcolor="#B2DFDB">
+                <th align="left">
+                    <font size="4" color="#006666">
+                        <b>Healthcare Instructions</b>
+                    </font>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="line-height: 1.8; font-size: 15px;">
+                        <li>Use the appropriate urine test strip and follow the manufacturer's sample-handling instructions.</li>
+                        <li>Allow the complete reaction time before image analysis.</li>
+                        <li>Ensure the strip is correctly positioned inside the device before image capture.</li>
+                        <li>Review all abnormal or flagged results through a qualified clinician or pathologist.</li>
+                        <li>Do not use a single test result as an independent diagnosis.</li>
+                        <li>Maintain patient privacy and data security when storing or transmitting patient-linked test results.</li>
+                        <li>Use the system as a decision-support tool, with final clinical interpretation remaining with the healthcare professional.</li>
+                    </ul>
+                    <hr color="#B2DFDB">
+                    <p style="font-size: 13px; color: #cc0000;">
+                        <b>Warning:</b> An abnormal result does not independently confirm a disease or medical condition, and a normal result does not rule out all possible conditions. Further clinical evaluation or confirmatory testing may be required.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- BOTTOM MOST FOOTER BANNER -->
+        <table class="footer-table" id="footer-section" cellpadding="15">
+            <tr>
+                <td align="center">
+                    <font color="#ffffff" size="3">
+                        <b>ABC Healthcare Centre</b> | Urine Test Strip Reader System
+                    </font>
+                    <br>
+                    <font color="#B2DFDB" size="2">
+                        <b>Call:</b> +91 12345 67890 &nbsp;|&nbsp; 
+                        <b>Email:</b> support@abchealthcare.com &nbsp;|&nbsp; 
+                        <b>Hospital Name:</b> ABC Healthcare Centre & Research Institute
+                    </font>
+                    <br><br>
+                    <font color="#ffffff" size="1">
+                        © 2026 ABC Healthcare. All Rights Reserved. | System Version 2.4.0
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

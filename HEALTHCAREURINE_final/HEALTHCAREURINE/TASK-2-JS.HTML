@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Appointment and Priority - ABC Healthcare</title>
+<style>
+    /* =========================
+       PAGE
+       ========================= */
+    body {
+        background-color: #EAF6F6;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px 0;
+    }
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    /* =========================
+       HEADER
+       ========================= */
+    .header-table {
+        width: 95%;
+        border: 0;
+        background-color: #006666;
+        margin: 15px auto 0 auto;
+        border-collapse: collapse;
+    }
+    .logo-box {
+        background-color: #004d4d;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        width: 15%;
+        border-right: 2px solid #B2DFDB;
+    }
+    .banner-box {
+        padding: 20px;
+        text-align: center;
+        color: white;
+        width: 85%;
+    }
+    .banner-title {
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .banner-subtitle {
+        color: #B2DFDB;
+        font-size: 18px;
+    }
+    /* =========================
+       INTRODUCTION
+       ========================= */
+    .intro {
+        background-color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+    }
+    .intro h2 {
+        color: #006666;
+        font-size: 22px;
+        margin: 0 0 10px 0;
+    }
+    .intro p {
+        margin: 0;
+    }
+    /* =========================
+       EMERGENCY BUTTON
+       ========================= */
+    .emergency-box {
+        background-color: white;
+        border: 3px solid #006666;
+        text-align: center;
+        padding: 25px;
+        margin-top: 30px;
+    }
+    .emergency-button {
+        width: 80%;
+        max-width: 500px;
+        padding: 22px;
+        background-color: #006666;
+        color: white;
+        border: 3px solid #004d4d;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .emergency-button:hover {
+        background-color: #004d4d;
+    }
+    .emergency-text {
+        color: #006666;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    /* =========================
+       EMERGENCY CONTACT
+       ========================= */
+    .contact-button {
+        padding: 10px 18px;
+        background-color: #006666;
+        color: white;
+        border: 1px solid #004d4d;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .contact-button:hover {
+        background-color: #004d4d;
+    }
+    /* =========================
+       FORM TABLE
+       ========================= */
+    .form-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border: 2px solid #006666;
+        margin-top: 30px;
+    }
+    .form-table td,
+    .form-table th {
+        padding: 12px;
+        border: 2px solid #006666;
+        vertical-align: middle;
+    }
+    .label-col {
+        width: 35%;
+    }
+    .section-header {
+        background-color: #B2DFDB;
+        text-align: left;
+    }
+    .section-header th {
+        color: #006666;
+        font-size: 18px;
+    }
+    /* =========================
+       INPUTS
+       ========================= */
+    .input-text,
+    .input-number,
+    .input-select {
+        width: 80%;
+        max-width: 300px;
+        padding: 7px;
+        box-sizing: border-box;
+    }
+    /* =========================
+       ERROR MESSAGE
+       ========================= */
+    .error {
+        color: #cc0000;
+        font-size: 13px;
+        display: block;
+        margin-top: 5px;
+    }
+    .input-error {
+        border: 2px solid #cc0000;
+    }
+    /* =========================
+       SYMPTOM BUTTONS
+       ========================= */
+    .symptom-box {
+        background-color: white;
+        border: 2px solid #006666;
+        margin-top: 30px;
+        padding: 20px;
+        text-align: center;
+    }
+    .symptom-box h2 {
+        color: #006666;
+        margin-top: 0;
+    }
+    .symptom-button {
+        padding: 10px 15px;
+        margin: 6px;
+        background-color: #EAF6F6;
+        color: #006666;
+        border: 2px solid #006666;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .symptom-button:hover {
+        background-color: #B2DFDB;
+    }
+    .symptom-info {
+        margin-top: 15px;
+        padding: 12px;
+        background-color: #E0F2F1;
+        color: #006666;
+        display: none;
+        font-weight: bold;
+    }
+    /* =========================
+       ACTION BUTTON
+       ========================= */
+    .action-row {
+        background-color: #E0F2F1;
+        text-align: center;
+    }
+    .btn-action {
+        padding: 8px 15px;
+        margin: 0 8px;
+        cursor: pointer;
+        background-color: #006666;
+        color: white;
+        border: 1px solid #004d4d;
+    }
+    .btn-action:hover {
+        background-color: #004d4d;
+    }
+    /* =========================
+       RESULT
+       ========================= */
+    #resultBox {
+        display: none;
+        background-color: white;
+        border: 3px solid #006666;
+        margin-top: 30px;
+        padding: 20px;
+        text-align: center;
+    }
+    #resultBox h2 {
+        color: #006666;
+    }
+    .result-message {
+        font-size: 20px;
+        font-weight: bold;
+        color: #006666;
+    }
+    /* =========================
+       FOOTER
+       ========================= */
+    .footer-table {
+        width: 100%;
+        border: 0;
+        background-color: #006666;
+        color: white;
+        margin-top: 30px;
+        border-collapse: collapse;
+    }
+    .footer-table td {
+        padding: 15px;
+        text-align: center;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- =========================
+     HEADER
+     ========================= -->
+<table class="header-table"
+       id="header-section"
+       cellpadding="0"
+       cellspacing="0">
+    <tr>
+        <!-- LOGO -->
+        <td class="logo-box"
+            id="logo-container">
+            <a href="index.html"
+               title="Internal Logo Link">
+                <img src="logo.png"
+                     alt="Healthcare Logo"
+                     id="main-logo"
+                     style="max-width: 100px; height: auto;">
+            </a>
+            <br>
+            <font size="2" color="#B2DFDB">
+                <b>ABC Healthcare</b>
+            </font>
+        </td>
+        <!-- BANNER -->
+        <td class="banner-box"
+            id="banner-container">
+            <div class="banner-title">
+                URINE TEST STRIP READER SYSTEM
+            </div>
+            <br>
+            <div class="banner-subtitle">
+                ABC Healthcare Centre –
+                Urine Test Centre Banner
+            </div>
+            <br>
+            <font color="#EAF6F6" size="2">
+                Software Version:
+                <b>v2.4.0</b>
+                |
+                Year:
+                <b>2026</b>
+            </font>
+        </td>
+    </tr>
+</table>
+<div class="container">
+    <!-- =========================
+         INTRODUCTION
+         ========================= -->
+    <section class="intro">
+        <h2>
+            PATIENT APPOINTMENT AND PRIORITY DECISION
+        </h2>
+        <p>
+            Enter patient information to determine
+            the appropriate consultation priority.
+        </p>
+    </section>
+    <!-- =========================
+         EMERGENCY BUTTON
+         ========================= -->
+    <div class="emergency-box">
+        <button type="button"
+                class="emergency-button"
+                onclick="emergencyAlert()">
+            🚨 EMERGENCY ALERT 🚨
+        </button>
+        <div class="emergency-text">
+            For serious or life-threatening situations,
+            use the emergency contact option below.
+        </div>
+        <br>
+        <button type="button"
+                class="contact-button"
+                onclick="openEmergencyContact()">
+            📞 EMERGENCY CONTACT
+        </button>
+    </div>
+    <!-- =========================
+         SYMPTOMS
+         ========================= -->
+    <div class="symptom-box">
+        <h2>
+            EMERGENCY SYMPTOMS
+        </h2>
+        <p>
+            Select a symptom to view the emergency information.
+        </p>
+        <button type="button"
+                class="symptom-button"
+                onclick="showSymptom('Dialysis Emergency')">
+            Dialysis Emergency
+        </button>
+        <button type="button"
+                class="symptom-button"
+                onclick="showSymptom('Cardiac Arrest')">
+            Cardiac Arrest
+        </button>
+        <button type="button"
+                class="symptom-button"
+                onclick="showSymptom('Stroke')">
+            Stroke
+        </button>
+        <button type="button"
+                class="symptom-button"
+                onclick="showSymptom('Arm / Leg Cut Off')">
+            Arm / Leg Cut Off
+        </button>
+        <button type="button"
+                class="symptom-button"
+                onclick="showSymptom('Severe Dehydration')">
+            Dehydration
+        </button>
+        <div id="symptomInfo"
+             class="symptom-info">
+        </div>
+    </div>
+    <!-- =========================
+         PATIENT FORM
+         ========================= -->
+    <form id="priorityForm"
+          novalidate>
+        <table class="form-table">
+            <!-- PATIENT INFORMATION -->
+            <thead>
+                <tr class="section-header">
+                    <th colspan="2">
+                        Patient Information
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- PATIENT AGE -->
+                <tr>
+                    <td class="label-col">
+                        <b>Patient Age</b>
+                    </td>
+                    <td>
+                        <input type="number"
+                               id="patientAge"
+                               name="patientAge"
+                               placeholder="Enter age"
+                               class="input-number">
+                        <span id="ageError"
+                              class="error">
+                        </span>
+                    </td>
+                </tr>
+                <!-- TEMPERATURE -->
+                <tr>
+                    <td class="label-col">
+                        <b>Temperature (°C)</b>
+                    </td>
+                    <td>
+                        <input type="number"
+                               id="temperature"
+                               name="temperature"
+                               placeholder="Enter temperature"
+                               step="0.1"
+                               class="input-number">
+                        <span id="temperatureError"
+                              class="error">
+                        </span>
+                    </td>
+                </tr>
+                <!-- SEVERITY -->
+                <tr>
+                    <td class="label-col">
+                        <b>Severity Level</b>
+                    </td>
+                    <td>
+                        <select id="severity"
+                                name="severity"
+                                class="input-select">
+                            <option value="">
+                                Select Severity
+                            </option>
+                            <option value="Mild">
+                                Mild
+                            </option>
+                            <option value="Moderate">
+                                Moderate
+                            </option>
+                            <option value="Severe">
+                                Severe
+                            </option>
+                        </select>
+                        <span id="severityError"
+                              class="error">
+                        </span>
+                    </td>
+                </tr>
+                <!-- EMERGENCY STATUS -->
+                <tr class="highlight-row">
+                    <td class="label-col">
+                        <b>Emergency Status</b>
+                    </td>
+                    <td>
+                        <select id="emergencyStatus"
+                                name="emergencyStatus"
+                                class="input-select">
+                            <option value="">
+                                Select Emergency Status
+                            </option>
+                            <option value="Yes">
+                                Yes
+                            </option>
+                            <option value="No">
+                                No
+                            </option>
+                        </select>
+                        <span id="emergencyError"
+                              class="error">
+                        </span>
+                    </td>
+                </tr>
+                <!-- SUBMIT -->
+                <tr class="action-row">
+                    <td colspan="2">
+                        <input type="submit"
+                               value="CHECK APPOINTMENT PRIORITY"
+                               class="btn-action">
+                        <input type="reset"
+                               value="RESET"
+                               class="btn-action">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <!-- =========================
+         RESULT
+         ========================= -->
+    <div id="resultBox">
+        <h2>
+            APPOINTMENT PRIORITY RESULT
+        </h2>
+        <p id="resultMessage"
+           class="result-message">
+        </p>
+        <p id="resultDetails">
+        </p>
+    </div>
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <table class="footer-table"
+           id="footer-section"
+           cellpadding="15">
+        <tr>
+            <td align="center">
+                <font color="#ffffff" size="3">
+                    <b>ABC Healthcare Centre</b>
+                    |
+                    Urine Test Strip Reader System
+                </font>
+                <br><br>
+                <font color="#B2DFDB" size="2">
+                    <b>Call:</b>
+                    +91 12345 67890
+                    &nbsp;|&nbsp;
+                    <b>Email:</b>
+                    support@abchealthcare.com
+                    &nbsp;|&nbsp;
+                    <b>Hospital Name:</b>
+                    ABC Healthcare Centre &
+                    Research Institute
+                </font>
+                <br><br>
+                <font color="#ffffff" size="1">
+                    © 2026 ABC Healthcare.
+                    All Rights Reserved.
+                    |
+                    System Version 2.4.0
+                </font>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
+<script>
+    /* =========================================
+       DOM ACCESS
+       ========================================= */
+    let form =
+        document.getElementById("priorityForm");
+    let patientAge =
+        document.getElementById("patientAge");
+    let temperature =
+        document.getElementById("temperature");
+    let severity =
+        document.getElementById("severity");
+    let emergencyStatus =
+        document.getElementById("emergencyStatus");
+    /* =========================================
+       EMERGENCY ALERT FUNCTION
+       ========================================= */
+    function emergencyAlert() {
+        alert(
+            "🚨 EMERGENCY ALERT 🚨\n\n" +
+            "If the patient is experiencing a " +
+            "life-threatening emergency, " +
+            "contact emergency medical services " +
+            "or the nearest hospital immediately."
+        );
+        console.log(
+            "Emergency Alert button selected."
+        );
+    }
+    /* =========================================
+       EMERGENCY CONTACT FUNCTION
+       ========================================= */
+    function openEmergencyContact() {
+        window.location.href =
+            "tel:112";
+    }
+    /* =========================================
+       SYMPTOM INFORMATION FUNCTION
+       ========================================= */
+    function showSymptom(symptom) {
+        let information =
+            document.getElementById("symptomInfo");
+        if (symptom === "Dialysis Emergency") {
+            information.innerHTML =
+                "Dialysis Emergency selected. " +
+                "Immediate medical attention may be required.";
+        }
+        else if (symptom === "Cardiac Arrest") {
+            information.innerHTML =
+                "Cardiac Arrest selected. " +
+                "Treat as a medical emergency and seek immediate emergency assistance.";
+        }
+        else if (symptom === "Stroke") {
+            information.innerHTML =
+                "Stroke selected. " +
+                "Immediate emergency medical evaluation is required.";
+        }
+        else if (symptom === "Arm / Leg Cut Off") {
+            information.innerHTML =
+                "Severe limb injury selected. " +
+                "Immediate emergency medical assistance is required.";
+        }
+        else if (symptom === "Severe Dehydration") {
+            information.innerHTML =
+                "Severe Dehydration selected. " +
+                "Urgent medical assessment may be required.";
+        }
+        information.style.display =
+            "block";
+        console.log(
+            "Emergency symptom selected: " +
+            symptom
+        );
+    }
+    /* =========================================
+       AGE VALIDATION
+       ========================================= */
+    function validateAge() {
+        let age =
+            Number(patientAge.value);
+        if (patientAge.value === "") {
+            document.getElementById("ageError").innerHTML =
+                "Patient age is required.";
+            patientAge.classList.add("input-error");
+            return false;
+        }
+        if (age < 1 || age > 120) {
+            document.getElementById("ageError").innerHTML =
+                "Age must be between 1 and 120.";
+            patientAge.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("ageError").innerHTML =
+            "";
+        patientAge.classList.remove("input-error");
+        return true;
+    }
+    /* =========================================
+       TEMPERATURE VALIDATION
+       ========================================= */
+    function validateTemperature() {
+        let temp =
+            Number(temperature.value);
+        if (temperature.value === "") {
+            document.getElementById("temperatureError").innerHTML =
+                "Temperature is required.";
+            temperature.classList.add("input-error");
+            return false;
+        }
+        if (temp < 30 || temp > 45) {
+            document.getElementById("temperatureError").innerHTML =
+                "Enter a valid temperature.";
+            temperature.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("temperatureError").innerHTML =
+            "";
+        temperature.classList.remove("input-error");
+        return true;
+    }
+    /* =========================================
+       SEVERITY VALIDATION
+       ========================================= */
+    function validateSeverity() {
+        if (severity.value === "") {
+            document.getElementById("severityError").innerHTML =
+                "Please select severity level.";
+            severity.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("severityError").innerHTML =
+            "";
+        severity.classList.remove("input-error");
+        return true;
+    }
+    /* =========================================
+       EMERGENCY STATUS VALIDATION
+       ========================================= */
+    function validateEmergencyStatus() {
+        if (emergencyStatus.value === "") {
+            document.getElementById("emergencyError").innerHTML =
+                "Please select emergency status.";
+            emergencyStatus.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("emergencyError").innerHTML =
+            "";
+        emergencyStatus.classList.remove("input-error");
+        return true;
+    }
+    /* =========================================
+       FORM SUBMIT EVENT
+       ========================================= */
+    form.addEventListener(
+        "submit",
+        function(event) {
+            /*
+               Prevent normal form submission.
+            */
+            event.preventDefault();
+            /* Run validation */
+            let ageValid =
+                validateAge();
+            let temperatureValid =
+                validateTemperature();
+            let severityValid =
+                validateSeverity();
+            let emergencyValid =
+                validateEmergencyStatus();
+            /* =================================
+               IF ALL INPUTS ARE VALID
+               ================================= */
+            if (
+                ageValid &&
+                temperatureValid &&
+                severityValid &&
+                emergencyValid
+            ) {
+                /* Read values */
+                let age =
+                    Number(patientAge.value);
+                let temp =
+                    Number(temperature.value);
+                let severityValue =
+                    severity.value;
+                let emergencyValue =
+                    emergencyStatus.value;
+                /* Variables */
+                let priority;
+                let recommendation;
+                /* =================================
+                   PRIORITY DECISION
+                   =================================
+                   Rule 1:
+                   Emergency = Yes
+                   Rule 2:
+                   Temperature >= 39
+                   Rule 3:
+                   Severity = Severe
+                   Rule 4:
+                   Age >= 60 AND
+                   Severity = Moderate
+                   Rule 5:
+                   Otherwise
+                */
+                if (emergencyValue === "Yes") {
+                    priority =
+                        "EMERGENCY PRIORITY";
+                    recommendation =
+                        "Emergency Consultation Required";
+                }
+                else if (
+                    temp >= 39 ||
+                    severityValue === "Severe"
+                ) {
+                    priority =
+                        "HIGH PRIORITY";
+                    recommendation =
+                        "High Priority Consultation";
+                }
+                else if (
+                    age >= 60 &&
+                    severityValue === "Moderate"
+                ) {
+                    priority =
+                        "MODERATE PRIORITY";
+                    recommendation =
+                        "Priority Consultation";
+                }
+                else {
+                    priority =
+                        "REGULAR PRIORITY";
+                    recommendation =
+                        "Regular Consultation";
+                }
+                /* =================================
+                   DISPLAY RESULT
+                   ================================= */
+                document.getElementById(
+                    "resultBox"
+                ).style.display = "block";
+                document.getElementById(
+                    "resultMessage"
+                ).innerHTML =
+                    priority;
+                document.getElementById(
+                    "resultDetails"
+                ).innerHTML =
+                    "<b>Patient Age:</b> " +
+                    age +
+                    "<br><br>" +
+                    "<b>Temperature:</b> " +
+                    temp +
+                    " °C" +
+                    "<br><br>" +
+                    "<b>Severity:</b> " +
+                    severityValue +
+                    "<br><br>" +
+                    "<b>Emergency Status:</b> " +
+                    emergencyValue +
+                    "<br><br>" +
+                    "<b>Recommendation:</b> " +
+                    recommendation;
+                /* =================================
+                   ALERT()
+                   ================================= */
+                alert(
+                    "Appointment Priority: " +
+                    priority +
+                    "\n\n" +
+                    recommendation
+                );
+                /* =================================
+                   CONSOLE.LOG()
+                   ================================= */
+                console.log(
+                    "===== APPOINTMENT PRIORITY ====="
+                );
+                console.log(
+                    "Patient Age: " + age
+                );
+                console.log(
+                    "Temperature: " + temp + " °C"
+                );
+                console.log(
+                    "Severity: " + severityValue
+                );
+                console.log(
+                    "Emergency Status: " +
+                    emergencyValue
+                );
+                console.log(
+                    "Priority: " + priority
+                );
+                console.log(
+                    "Recommendation: " +
+                    recommendation
+                );
+            }
+            else {
+                console.log(
+                    "Invalid input. " +
+                    "Please correct the errors."
+                );
+            }
+        }
+    );
+    /* =========================================
+       RESET FORM
+       ========================================= */
+    form.addEventListener(
+        "reset",
+        function() {
+            document.getElementById(
+                "ageError"
+            ).innerHTML = "";
+            document.getElementById(
+                "temperatureError"
+            ).innerHTML = "";
+            document.getElementById(
+                "severityError"
+            ).innerHTML = "";
+            document.getElementById(
+                "emergencyError"
+            ).innerHTML = "";
+            document.getElementById(
+                "resultBox"
+            ).style.display = "none";
+            patientAge.classList.remove(
+                "input-error"
+            );
+            temperature.classList.remove(
+                "input-error"
+            );
+            severity.classList.remove(
+                "input-error"
+            );
+            emergencyStatus.classList.remove(
+                "input-error"
+            );
+        }
+    );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Task 4 - Patient Age and Appointment Data</title>
+    <style>
+        body {
+            background-color: #EAF6F6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px 0;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        /* HEADER */
+        .header-table {
+            width: 95%;
+            border: 0;
+            background-color: #006666;
+            margin: 15px auto 0 auto;
+            border-collapse: collapse;
+        }
+        .logo-box {
+            background-color: #004d4d;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            width: 15%;
+            border-right: 2px solid #B2DFDB;
+        }
+        .logo-box img {
+            max-width: 80px;
+            max-height: 80px;
+        }
+        .banner-box {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 85%;
+        }
+        .banner-box h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .banner-box p {
+            color: #B2DFDB;
+            font-size: 18px;
+            margin: 5px 0 0 0;
+        }
+        /* INTRO */
+        .intro {
+            background-color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        .intro h2 {
+            color: #006666;
+            font-size: 22px;
+            margin: 0 0 10px 0;
+        }
+        .intro p {
+            margin: 0;
+        }
+        /* TABLE */
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border: 2px solid #006666;
+        }
+        .form-table td,
+        .form-table th {
+            padding: 12px;
+            border: 2px solid #006666;
+            vertical-align: middle;
+        }
+        .section-header {
+            background-color: #B2DFDB;
+            text-align: left;
+        }
+        .section-header th {
+            color: #006666;
+            font-size: 18px;
+        }
+        /* PATIENT TABLE */
+        .patient-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        .patient-table th,
+        .patient-table td {
+            border: 1px solid #006666;
+            padding: 10px;
+            text-align: center;
+        }
+        .patient-table th {
+            background-color: #B2DFDB;
+            color: #006666;
+        }
+        .patient-table tr:nth-child(even) {
+            background-color: #EAF6F6;
+        }
+        /* BUTTONS */
+        .action-row {
+            background-color: #E0F2F1;
+            text-align: center;
+        }
+        .btn-action {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #006666;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        .btn-action:hover {
+            background-color: #004d4d;
+        }
+        /* OUTPUT */
+        #output {
+            width: 95%;
+            margin: 0 auto;
+            padding: 15px;
+            border: 2px solid #006666;
+            background-color: white;
+            display: none;
+            overflow-x: auto;
+        }
+        #output h3 {
+            color: #004d4d;
+            text-align: center;
+        }
+        /* FOOTER */
+        .footer-table {
+            width: 100%;
+            border: 0;
+            background-color: #006666;
+            color: white;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        .footer-table td {
+            text-align: center;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- HEADER -->
+    <table class="header-table">
+        <tr>
+            <td class="logo-box">
+                <a href="index.html">
+                    <img src="logo.png"
+                         alt="ABC Healthcare Logo">
+                </a>
+            </td>
+            <td class="banner-box">
+                <h1>ABC HEALTHCARE CENTRE</h1>
+                <p>Urine Test Strip Reader System</p>
+            </td>
+        </tr>
+    </table>
+    <!-- INTRO -->
+    <div class="intro">
+        <h2>Patient Age and Appointment Data</h2>
+        <p>
+            This page demonstrates array operations
+            using multiple patient records.
+        </p>
+    </div>
+    <!-- TASK -->
+    <table class="form-table">
+        <tr class="section-header">
+            <th>
+                Task 4: Patient Age and Appointment Data Using Arrays
+            </th>
+        </tr>
+    </table>
+    <!-- PATIENT DATA -->
+    <table class="patient-table">
+        <tr>
+            <th>Patient ID</th>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Department</th>
+            <th>Type of Test</th>
+        </tr>
+        <tbody id="patientTable">
+        </tbody>
+    </table>
+    <!-- OPERATIONS -->
+    <table class="form-table">
+        <tr class="section-header">
+            <th>
+                Patient Data Operations
+            </th>
+        </tr>
+        <tr class="action-row">
+            <td>
+                <button class="btn-action"
+                        onclick="displayAllPatients()">
+                    Display All Patients
+                </button>
+                <button class="btn-action"
+                        onclick="findMinimum()">
+                    Find Minimum Age
+                </button>
+                <button class="btn-action"
+                        onclick="findMaximum()">
+                    Find Maximum Age
+                </button>
+                <button class="btn-action"
+                        onclick="calculateAverage()">
+                    Calculate Average Age
+                </button>
+                <button class="btn-action"
+                        onclick="countSeniorCitizens()">
+                    Count Senior Citizens
+                </button>
+                <button class="btn-action"
+                        onclick="countBelow18()">
+                    Count Below 18
+                </button>
+                <button class="btn-action"
+                        onclick="displayAbove60()">
+                    Patients Above 60
+                </button>
+            </td>
+        </tr>
+    </table>
+    <!-- OUTPUT -->
+    <div id="output">
+        <h3 id="outputTitle"></h3>
+        <div id="outputText"></div>
+    </div>
+    <!-- FOOTER -->
+    <table class="footer-table">
+        <tr>
+            <td>
+                ABC Healthcare Centre |
+                Patient Registration Portal
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    // Array containing multiple patient objects
+    let patients = [
+        {
+            id: "PAT-1001",
+            name: "Rahul Sharma",
+            age: 22,
+            department: "General Medicine",
+            test: "Urine Routine"
+        },
+        {
+            id: "PAT-1002",
+            name: "Priya Patil",
+            age: 35,
+            department: "Cardiology",
+            test: "Blood Test"
+        },
+        {
+            id: "PAT-1003",
+            name: "Arjun Mehta",
+            age: 67,
+            department: "Urology",
+            test: "Urine Culture"
+        },
+        {
+            id: "PAT-1004",
+            name: "Sneha Joshi",
+            age: 45,
+            department: "Nephrology",
+            test: "Kidney Function Test"
+        },
+        {
+            id: "PAT-1005",
+            name: "Amit Shah",
+            age: 29,
+            department: "General Medicine",
+            test: "Urine Routine"
+        },
+        {
+            id: "PAT-1006",
+            name: "Neha Kulkarni",
+            age: 72,
+            department: "Cardiology",
+            test: "ECG"
+        },
+        {
+            id: "PAT-1007",
+            name: "Rohan Desai",
+            age: 56,
+            department: "Urology",
+            test: "Urine Test Strip"
+        },
+        {
+            id: "PAT-1008",
+            name: "Anjali Rao",
+            age: 18,
+            department: "General Medicine",
+            test: "Blood Test"
+        },
+        {
+            id: "PAT-1009",
+            name: "Vikram Singh",
+            age: 64,
+            department: "Nephrology",
+            test: "Kidney Function Test"
+        },
+        {
+            id: "PAT-1010",
+            name: "Pooja Verma",
+            age: 40,
+            department: "Cardiology",
+            test: "ECG"
+        },
+        {
+            id: "PAT-1011",
+            name: "Karan Gupta",
+            age: 15,
+            department: "General Medicine",
+            test: "Urine Routine"
+        },
+        {
+            id: "PAT-1012",
+            name: "Meera Nair",
+            age: 61,
+            department: "Urology",
+            test: "Urine Culture"
+        },
+        {
+            id: "PAT-1013",
+            name: "Aditya More",
+            age: 33,
+            department: "Nephrology",
+            test: "Urine Test Strip"
+        },
+        {
+            id: "PAT-1014",
+            name: "Kavya Iyer",
+            age: 27,
+            department: "General Medicine",
+            test: "Blood Test"
+        },
+        {
+            id: "PAT-1015",
+            name: "Suresh Patil",
+            age: 70,
+            department: "Cardiology",
+            test: "ECG"
+        },
+        {
+            id: "PAT-1016",
+            name: "Isha Kapoor",
+            age: 12,
+            department: "General Medicine",
+            test: "Urine Routine"
+        },
+        {
+            id: "PAT-1017",
+            name: "Manoj Yadav",
+            age: 52,
+            department: "Urology",
+            test: "Urine Culture"
+        },
+        {
+            id: "PAT-1018",
+            name: "Riya Shah",
+            age: 66,
+            department: "Nephrology",
+            test: "Kidney Function Test"
+        },
+        {
+            id: "PAT-1019",
+            name: "Nikhil Joshi",
+            age: 38,
+            department: "General Medicine",
+            test: "Urine Test Strip"
+        },
+        {
+            id: "PAT-1020",
+            name: "Sunita Deshmukh",
+            age: 75,
+            department: "Cardiology",
+            test: "ECG"
+        }
+    ];
+    // Display patient table
+    function displayPatientTable(patientList) {
+        let table = "";
+        for (let i = 0; i < patientList.length; i++) {
+            table +=
+                "<tr>" +
+                "<td>" +
+                patientList[i].id +
+                "</td>" +
+                "<td>" +
+                patientList[i].name +
+                "</td>" +
+                "<td>" +
+                patientList[i].age +
+                "</td>" +
+                "<td>" +
+                patientList[i].department +
+                "</td>" +
+                "<td>" +
+                patientList[i].test +
+                "</td>" +
+                "</tr>";
+        }
+        return table;
+    }
+    // Display all patients
+    function displayAllPatients() {
+        let table = displayPatientTable(patients);
+        showOutput(
+            "All Patient Records",
+            "<table class='patient-table'>" +
+            "<tr>" +
+            "<th>Patient ID</th>" +
+            "<th>Patient Name</th>" +
+            "<th>Age</th>" +
+            "<th>Department</th>" +
+            "<th>Type of Test</th>" +
+            "</tr>" +
+            table +
+            "</table>"
+        );
+        console.log(patients);
+    }
+    // Find minimum age
+    function findMinimum() {
+        let minimum = patients[0].age;
+        for (let i = 1; i < patients.length; i++) {
+            if (patients[i].age < minimum) {
+                minimum = patients[i].age;
+            }
+        }
+        let result = [];
+        for (let i = 0; i < patients.length; i++) {
+            if (patients[i].age == minimum) {
+                result.push(patients[i]);
+            }
+        }
+        showOutput(
+            "Patient With Minimum Age",
+            createResultTable(result)
+        );
+        console.log("Minimum Age:", minimum);
+    }
+    // Find maximum age
+    function findMaximum() {
+        let maximum = patients[0].age;
+        for (let i = 1; i < patients.length; i++) {
+            if (patients[i].age > maximum) {
+                maximum = patients[i].age;
+            }
+        }
+        let result = [];
+        for (let i = 0; i < patients.length; i++) {
+            if (patients[i].age == maximum) {
+                result.push(patients[i]);
+            }
+        }
+        showOutput(
+            "Patient With Maximum Age",
+            createResultTable(result)
+        );
+        console.log("Maximum Age:", maximum);
+    }
+    // Calculate average age
+    function calculateAverage() {
+        let sum = 0;
+        for (let i = 0; i < patients.length; i++) {
+            sum = sum + patients[i].age;
+        }
+        let average = sum / patients.length;
+        showOutput(
+            "Average Patient Age",
+            "Total Patients: " +
+            patients.length +
+            "<br><br>" +
+            "Total Age: " +
+            sum +
+            " years" +
+            "<br><br>" +
+            "Average Age: " +
+            average.toFixed(2) +
+            " years"
+        );
+        console.log("Average Age:", average);
+    }
+    // Count senior citizens
+    function countSeniorCitizens() {
+        let seniorPatients = [];
+        for (let i = 0; i < patients.length; i++) {
+            if (patients[i].age >= 60) {
+                seniorPatients.push(patients[i]);
+            }
+        }
+        showOutput(
+            "Senior Citizen Patients",
+            "<p>Total Senior Citizens: " +
+            seniorPatients.length +
+            "</p>" +
+            createResultTable(seniorPatients)
+        );
+        console.log(
+            "Senior Citizens:",
+            seniorPatients
+        );
+    }
+    // Count patients below 18
+    function countBelow18() {
+        let youngPatients = [];
+        for (let i = 0; i < patients.length; i++) {
+            if (patients[i].age < 18) {
+                youngPatients.push(patients[i]);
+            }
+        }
+        if (youngPatients.length == 0) {
+            showOutput(
+                "Patients Below 18",
+                "No patients are below 18 years."
+            );
+        }
+        else {
+            showOutput(
+                "Patients Below 18",
+                "<p>Total Patients Below 18: " +
+                youngPatients.length +
+                "</p>" +
+                createResultTable(youngPatients)
+            );
+        }
+        console.log(
+            "Patients Below 18:",
+            youngPatients
+        );
+    }
+    // Display patients above 60
+    function displayAbove60() {
+        let above60 = [];
+        for (let i = 0; i < patients.length; i++) {
+            if (patients[i].age > 60) {
+                above60.push(patients[i]);
+            }
+        }
+        showOutput(
+            "Patients Above 60 Years",
+            "<p>Total Patients Above 60: " +
+            above60.length +
+            "</p>" +
+            createResultTable(above60)
+        );
+        console.log(
+            "Patients Above 60:",
+            above60
+        );
+    }
+    // Create table for filtered results
+    function createResultTable(patientList) {
+        let table =
+            "<table class='patient-table'>" +
+            "<tr>" +
+            "<th>Patient ID</th>" +
+            "<th>Patient Name</th>" +
+            "<th>Age</th>" +
+            "<th>Department</th>" +
+            "<th>Type of Test</th>" +
+            "</tr>";
+        for (let i = 0; i < patientList.length; i++) {
+            table +=
+                "<tr>" +
+                "<td>" +
+                patientList[i].id +
+                "</td>" +
+                "<td>" +
+                patientList[i].name +
+                "</td>" +
+                "<td>" +
+                patientList[i].age +
+                "</td>" +
+                "<td>" +
+                patientList[i].department +
+                "</td>" +
+                "<td>" +
+                patientList[i].test +
+                "</td>" +
+                "</tr>";
+        }
+        table += "</table>";
+        return table;
+    }
+    // Common output function
+    function showOutput(title, text) {
+        document.getElementById("outputTitle").innerHTML =
+            title;
+        document.getElementById("outputText").innerHTML =
+            text;
+        document.getElementById("output").style.display =
+            "block";
+    }
+    // Display all patients when page loads
+    document.getElementById("patientTable").innerHTML =
+        displayPatientTable(patients);
+</script>
+</body>
+</html>

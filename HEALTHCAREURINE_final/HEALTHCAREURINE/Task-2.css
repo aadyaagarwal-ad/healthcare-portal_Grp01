@@ -1,0 +1,78 @@
+        /* Top Header & Banner Styling */
+        .header-table {
+            width: 95%;
+            border: 0;
+            background-color: #006666;
+            margin: 15px auto 0 auto;
+            border-collapse: collapse;
+        }
+
+        .logo-box {
+            background-color: #004d4d;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            width: 15%;
+            border-right: 2px solid #B2DFDB;
+        }
+
+        .banner-box {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 85%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EAF6F6;
+            margin: 0;
+            padding: 20px;
+            color: #333333;
+        }
+        /* Flowchart Box Styles */
+        .flow-box {
+            background-color: #006666;
+            color: white;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        /* Flowchart Arrow Styles */
+        .flow-arrow {
+            color: #006666;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            padding: 4px 0;
+        }
+        /* Input field styling */
+        input[type="text"], input[type="number"], input[type="tel"], input[type="email"], input[type="date"] {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: #006666;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="reset"] {
+            background-color: #757575;
+        }
+        /* Bottom Footer Banner */
+        .footer-table {
+            width: 100%;
+            border: 0;
+            background-color: #006666;
+            color: white;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }

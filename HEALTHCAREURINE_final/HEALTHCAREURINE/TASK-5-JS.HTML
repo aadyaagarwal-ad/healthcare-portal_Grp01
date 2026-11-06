@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 3 - Patient Registration</title>
+<style>
+body {
+    background-color: #EAF6F6;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+}
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+/* Header Table */
+.header-table {
+    width: 95%;
+    border: 0;
+    background-color: #006666;
+    margin: 15px auto 0 auto;
+    border-collapse: collapse;
+}
+.logo-box {
+    background-color: #004d4d;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    width: 15%;
+    border-right: 2px solid #B2DFDB;
+}
+.logo-box img {
+    max-width: 80px;
+    max-height: 80px;
+}
+.banner-box {
+    padding: 20px;
+    text-align: center;
+    color: white;
+    width: 85%;
+}
+.banner-box h1 {
+    margin: 0;
+    font-size: 28px;
+}
+.banner-box p {
+    color: #B2DFDB;
+    font-size: 18px;
+    margin: 5px 0 0 0;
+}
+/* Intro Section */
+.intro {
+    background-color: white;
+    text-align: center;
+    padding: 15px;
+}
+.intro h2 {
+    color: #006666;
+    font-size: 22px;
+    margin: 0 0 10px 0;
+}
+.intro p {
+    margin: 0;
+}
+/* Section Header */
+.section-header {
+    background-color: #B2DFDB;
+    text-align: left;
+}
+.section-header th {
+    color: #006666;
+    font-size: 18px;
+    padding: 12px;
+}
+/* Patient Information Table */
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border: 2px solid #006666;
+}
+.form-table td,
+.form-table th {
+    padding: 12px;
+    border: 2px solid #006666;
+    vertical-align: middle;
+}
+.label-col {
+    width: 35%;
+}
+.highlight-row {
+    background-color: #EAF6F6;
+}
+/* Buttons */
+.action-row {
+    background-color: #E0F2F1;
+    text-align: center;
+}
+.btn-action {
+    padding: 8px 15px;
+    margin: 0 8px;
+    cursor: pointer;
+    background-color: #006666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.btn-action:hover {
+    background-color: #004d4d;
+}
+/* Output */
+#output {
+    width: 85%;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px solid #006666;
+    background-color: #EAF6F6;
+    display: none;
+}
+#output h3 {
+    color: #004d4d;
+    text-align: center;
+}
+/* Footer Table */
+.footer-table {
+    width: 100%;
+    border: 0;
+    background-color: #006666;
+    color: white;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+.footer-table td {
+    text-align: center;
+    padding: 12px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<!-- Header -->
+<table class="header-table">
+<tr>
+<td class="logo-box">
+<a href="index.html">
+<img src="logo.png" alt="ABC Healthcare Logo">
+</a>
+</td>
+<td class="banner-box">
+<h1>ABC HEALTHCARE CENTRE</h1>
+<p>Urine Test Strip Reader System</p>
+</td>
+</tr>
+</table>
+<!-- Introduction -->
+<div class="intro">
+<h2>Patient Registration Portal</h2>
+<p>
+This page demonstrates the use of a JavaScript object
+to store and display patient registration information.
+</p>
+</div>
+<!-- Patient Information -->
+<table class="form-table">
+<tr class="section-header">
+<th colspan="2">Patient Information</th>
+</tr>
+<tr>
+<th class="label-col">Patient Name</th>
+<td id="patientName"></td>
+</tr>
+<tr class="highlight-row">
+<th>Patient ID</th>
+<td id="patientId"></td>
+</tr>
+<tr>
+<th>Age</th>
+<td id="age"></td>
+</tr>
+<tr class="highlight-row">
+<th>Gender</th>
+<td id="gender"></td>
+</tr>
+<tr>
+<th>Blood Group</th>
+<td id="bloodGroup"></td>
+</tr>
+<tr class="highlight-row">
+<th>Mobile Number</th>
+<td id="mobile"></td>
+</tr>
+<tr>
+<th>Department</th>
+<td id="department"></td>
+</tr>
+<tr class="highlight-row">
+<th>Appointment Type</th>
+<td id="appointmentType"></td>
+</tr>
+<tr>
+<th>Registration Status</th>
+<td id="registrationStatus"></td>
+</tr>
+</table>
+<!-- Action Buttons -->
+<table class="form-table">
+<tr class="section-header">
+<th>Patient Object Methods</th>
+</tr>
+<tr class="action-row">
+<td>
+<button class="btn-action"
+onclick="displayPatientInfo()">
+Display Complete Patient Information
+</button>
+<button class="btn-action"
+onclick="displayAppointment()">
+Display Appointment Information
+</button>
+<button class="btn-action"
+onclick="checkPatientCategory()">
+Check Patient Category
+</button>
+</td>
+</tr>
+</table>
+<!-- Output -->
+<div id="output">
+<h3 id="outputTitle"></h3>
+<p id="outputText"></p>
+</div>
+<!-- Footer -->
+<table class="footer-table">
+<tr>
+<td>
+ABC Healthcare Centre | Patient Registration Portal
+</td>
+</tr>
+</table>
+</div>
+<script>
+// JavaScript Object
+let patient = {
+    patientName: "Rahul Sharma",
+    patientId: "PAT-1001",
+    age: 65,
+    gender: "Male",
+    bloodGroup: "B+",
+    mobile: "9876543210",
+    department: "Cardiology",
+    appointmentType: "Consultation",
+    registrationStatus: "Confirmed",
+    // Method 1: Display complete patient information
+    displayPatient: function () {
+        console.log("Patient Name: " + this.patientName);
+        console.log("Patient ID: " + this.patientId);
+        console.log("Age: " + this.age);
+        console.log("Gender: " + this.gender);
+        console.log("Blood Group: " + this.bloodGroup);
+        console.log("Mobile Number: " + this.mobile);
+        console.log("Department: " + this.department);
+        console.log("Appointment Type: " + this.appointmentType);
+        console.log("Registration Status: " + this.registrationStatus);
+    },
+    // Method 2: Display appointment information
+    displayAppointment: function () {
+        console.log("Patient Name: " + this.patientName);
+        console.log("Department: " + this.department);
+        console.log("Appointment Type: " + this.appointmentType);
+        console.log("Registration Status: " + this.registrationStatus);
+    },
+    // Method 3: Determine patient category
+    checkAgeCategory: function () {
+        if (this.age >= 60) {
+            return "Senior Citizen";
+        }
+        else if (this.age >= 18) {
+            return "Adult";
+        }
+        else {
+            return "Minor";
+        }
+    }
+};
+// Display complete patient information
+function displayPatientInfo() {
+    patient.displayPatient();
+    document.getElementById("outputTitle").innerHTML =
+        "Complete Patient Information";
+    document.getElementById("outputText").innerHTML =
+        "Patient Name: " + patient.patientName + "<br>" +
+        "Patient ID: " + patient.patientId + "<br>" +
+        "Age: " + patient.age + "<br>" +
+        "Gender: " + patient.gender + "<br>" +
+        "Blood Group: " + patient.bloodGroup + "<br>" +
+        "Mobile Number: " + patient.mobile + "<br>" +
+        "Department: " + patient.department + "<br>" +
+        "Appointment Type: " + patient.appointmentType + "<br>" +
+        "Registration Status: " + patient.registrationStatus;
+    document.getElementById("output").style.display = "block";
+}
+// Display appointment information
+function displayAppointment() {
+    patient.displayAppointment();
+    document.getElementById("outputTitle").innerHTML =
+        "Appointment Information";
+    document.getElementById("outputText").innerHTML =
+        "Patient Name: " + patient.patientName + "<br>" +
+        "Department: " + patient.department + "<br>" +
+        "Appointment Type: " + patient.appointmentType + "<br>" +
+        "Registration Status: " + patient.registrationStatus;
+    document.getElementById("output").style.display = "block";
+}
+// Check patient category
+function checkPatientCategory() {
+    let category = patient.checkAgeCategory();
+    console.log("Patient Category: " + category);
+    document.getElementById("outputTitle").innerHTML =
+        "Patient Category";
+    document.getElementById("outputText").innerHTML =
+        "Patient Name: " + patient.patientName + "<br>" +
+        "Age: " + patient.age + "<br>" +
+        "Category: " + category;
+    document.getElementById("output").style.display = "block";
+    alert("Patient is classified as: " + category);
+}
+// Display patient object properties on page load
+document.getElementById("patientName").innerHTML =
+    patient.patientName;
+document.getElementById("patientId").innerHTML =
+    patient.patientId;
+document.getElementById("age").innerHTML =
+    patient.age;
+document.getElementById("gender").innerHTML =
+    patient.gender;
+document.getElementById("bloodGroup").innerHTML =
+    patient.bloodGroup;
+document.getElementById("mobile").innerHTML =
+    patient.mobile;
+document.getElementById("department").innerHTML =
+    patient.department;
+document.getElementById("appointmentType").innerHTML =
+    patient.appointmentType;
+document.getElementById("registrationStatus").innerHTML =
+    patient.registrationStatus;
+</script>
+</body>
+</html>

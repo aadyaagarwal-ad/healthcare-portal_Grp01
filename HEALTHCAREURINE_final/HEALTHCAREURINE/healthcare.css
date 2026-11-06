@@ -1,0 +1,85 @@
+
+        /* Top Header & Banner Styling */
+        .header-table {
+            width: 95%;
+            border: 0;
+            background-color: #006666;
+            margin: 15px auto 0 auto;
+            border-collapse: collapse;
+        }
+
+        .logo-box {
+            background-color: #004d4d;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            width: 15%;
+            border-right: 2px solid #B2DFDB;
+        }
+
+        .banner-box {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 85%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EAF6F6;
+            margin: 0;
+            padding: 20px;
+            color: #333333;
+        }
+        
+        /* Navigation */
+        .navigation {
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+        }
+        .navigation a {
+            color: #006666;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 8px;
+        }
+        .navigation a:hover {
+            color: #009999;
+        }
+        /* Content Box */
+        .box {
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        /* Section Heading */
+        .box-header {
+            background-color: #B2DFDB;
+            color: #006666;
+            padding: 12px 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        /* Section Content */
+        .box-content {
+            padding: 15px;
+            line-height: 1.6;
+        }
+        /* Lists */
+        li {
+            margin-bottom: 8px;
+        }
+      /* Bottom Footer Banner */
+        .footer-table {
+            width: 100%;
+            border: 0;
+            background-color: #006666;
+            color: white;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration - ABC Healthcare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <table class="header-table" id="header-section" cellpadding="0" cellspacing="0">
+        <tr>
+            <!-- TOP LEFT LOGO -->
+            <td class="logo-box" id="logo-container">
+                <a href="index.html" title="Internal Logo Link">
+                    <img src="logo.png" alt="Healthcare Logo" id="main-logo" style="max-width: 100px; height: auto;" />
+                </a>
+                <br>
+                <font size="2" color="#B2DFDB"><b>ABC Healthcare</b></font>
+            </td>
+            
+            <!-- TOP CENTER TO RIGHT BANNER -->
+            <td class="banner-box" id="banner-container">
+                <div class="tooltip-container" id="system-tooltip">
+                    <font color="white" size="6">
+                        <b>PATIENT REGISTRATION PORTAL</b>
+                    </font>
+                </div>
+                <br>
+                <font color="#B2DFDB" size="4">
+                    ABC Healthcare Centre – Patient Care & Appointment Scheduling
+                </font>
+                <br>
+                <font color="#EAF6F6" size="2">
+                    Software Version: <b>v2.4.0</b> | Academic Year: <b>2026-27</b>
+                </font>
+            </td>
+        </tr>
+    </table>
+
+    <div class="container">
+        <!-- INTRODUCTION -->
+        <section class="intro">
+            <h2>ONLINE PATIENT REGISTRATION FORM</h2>
+            <p>Please enter the patient's details carefully to complete registration and request an appointment.</p>
+        </section>
+
+        <!-- REGISTRATION FORM -->
+        <form id="registrationForm" class="registration-form">
+            
+            <!-- FIELDSET 1 - PATIENT DEMOGRAPHICS -->
+            <fieldset>
+                <legend>Patient Demographics</legend>
+                <table class="form-table">
+                    <!-- PATIENT NAME -->
+                    <tr>
+                        <td class="label-col"><label for="patient_name"><b>Patient Name *</b></label></td>
+                        <td>
+                            <input type="text" id="patient_name" name="patient_name" placeholder="Enter full name" class="input-text">
+                            <span id="err-patient_name" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- PATIENT ID -->
+                    <tr>
+                        <td class="label-col"><label for="patient_id"><b>Patient ID *</b></label></td>
+                        <td>
+                            <input type="text" id="patient_id" name="patient_id" placeholder="e.g., PID-001" class="input-text">
+                            <span id="err-patient_id" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- DATE OF BIRTH -->
+                    <tr>
+                        <td class="label-col"><label for="dob"><b>Date of Birth *</b></label></td>
+                        <td>
+                            <input type="date" id="dob" name="dob" class="input-date">
+                            <span id="err-dob" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- GENDER -->
+                    <tr>
+                        <td class="label-col"><b>Gender *</b></td>
+                        <td>
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" value="male"> Male</label>
+                                <label><input type="radio" name="gender" value="female"> Female</label>
+                                <label><input type="radio" name="gender" value="other"> Other</label>
+                            </div>
+                            <span id="err-gender" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- BLOOD GROUP -->
+                    <tr>
+                        <td class="label-col"><label for="blood_group"><b>Blood Group *</b></label></td>
+                        <td>
+                            <select id="blood_group" name="blood_group" class="input-select">
+                                <option value="">-- Select Blood Group --</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                            <span id="err-blood_group" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- ADDRESS -->
+                    <tr>
+                        <td class="label-col"><label for="address"><b>Address *</b></label></td>
+                        <td>
+                            <textarea id="address" name="address" placeholder="Enter residential address" class="input-textarea"></textarea>
+                            <span id="err-address" class="error-message"></span>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <!-- FIELDSET 2 - CONTACT & APPOINTMENT DETAILS -->
+            <fieldset>
+                <legend>Contact & Appointment Details</legend>
+                <table class="form-table">
+                    <!-- MOBILE NUMBER -->
+                    <tr>
+                        <td class="label-col"><label for="mobile"><b>Mobile Number *</b></label></td>
+                        <td>
+                            <input type="tel" id="mobile" name="mobile" maxlength="10" placeholder="Enter 10-digit mobile number" class="input-text">
+                            <span id="err-mobile" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- EMAIL ADDRESS -->
+                    <tr>
+                        <td class="label-col"><label for="email"><b>Email Address *</b></label></td>
+                        <td>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" class="input-text">
+                            <span id="err-email" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- EMERGENCY CONTACT -->
+                    <tr>
+                        <td class="label-col"><label for="emergency_contact"><b>Emergency Contact *</b></label></td>
+                        <td>
+                            <input type="tel" id="emergency_contact" name="emergency_contact" maxlength="10" placeholder="Enter emergency 10-digit mobile" class="input-text">
+                            <span id="err-emergency_contact" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- DEPARTMENT -->
+                    <tr>
+                        <td class="label-col"><label for="department"><b>Department *</b></label></td>
+                        <td>
+                            <select id="department" name="department" class="input-select">
+                                <option value="">-- Select Department --</option>
+                                <option value="urology">Urology</option>
+                                <option value="general">General Medicine</option>
+                                <option value="nephrology">Nephrology</option>
+                                <option value="pathology">Pathology Laboratory</option>
+                            </select>
+                            <span id="err-department" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- APPOINTMENT DATE -->
+                    <tr>
+                        <td class="label-col"><label for="appointment_date"><b>Appointment Date *</b></label></td>
+                        <td>
+                            <input type="date" id="appointment_date" name="appointment_date" class="input-date">
+                            <span id="err-appointment_date" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- SYMPTOMS -->
+                    <tr>
+                        <td class="label-col"><b>Select Symptoms</b></td>
+                        <td class="checkbox-group">
+                            <label><input type="checkbox" name="symptom" value="fever"> Fever</label>
+                            <label><input type="checkbox" name="symptom" value="pain"> Abdominal Pain</label>
+                            <label><input type="checkbox" name="symptom" value="burning"> Burning Sensation</label>
+                            <label><input type="checkbox" name="symptom" value="frequent"> Frequent Urination</label>
+                        </td>
+                    </tr>
+
+                    <!-- ACTION BUTTONS -->
+                    <tr class="action-row">
+                        <td colspan="2">
+                            <input type="submit" value="REGISTER PATIENT" class="btn-action">
+                            <input type="reset" value="RESET FORM" class="btn-action">
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+        <!-- FOOTER SECTION -->
+        <table class="footer-table" id="footer-section" cellpadding="15">
+            <tr>
+                <td align="center">
+                    <font color="#ffffff" size="3">
+                        <b>ABC Healthcare Centre</b> | Patient Registration Portal
+                    </font>
+                    <br>
+                    <font color="#B2DFDB" size="2">
+                        <b>Call:</b> +91 12345 67890 &nbsp;|&nbsp; 
+                        <b>Email:</b> support@abchealthcare.com &nbsp;|&nbsp; 
+                        <b>Hospital Name:</b> ABC Healthcare Centre & Research Institute
+                    </font>
+                    <br><br>
+                    <font color="#ffffff" size="1">
+                        © 2026 ABC Healthcare. All Rights Reserved. | System Version 2.4.0
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- JQUERY CDN LIBRARY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- SEPARATE JQUERY SCRIPT FILES -->
+    <script src="task-1-init.js"></script>
+    <script src="task-2-required-fields.js"></script>
+    <script src="task-3-contact-validation.js"></script>
+    <script src="task-4-dates-demographics.js"></script>
+</body>
+</html>

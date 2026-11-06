@@ -1,0 +1,124 @@
+
+          /* Top Header & Banner Styling */
+        .header-table {
+            width: 95%;
+            border: 0;
+            background-color: #006666;
+            margin: 15px auto 0 auto;
+            border-collapse: collapse;
+        }
+
+        .logo-box {
+            background-color: #004d4d;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            width: 15%;
+            border-right: 2px solid #B2DFDB;
+        }
+
+        .banner-box {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 85%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EAF6F6;
+            margin: 0;
+            padding: 20px;
+            color: #333333;
+        }
+        .header {
+            background-color: #006666;
+            width: 90%;
+            margin: auto;
+            padding: 25px;
+            height: auto;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        li {
+            list-style-type: none;
+        }
+        .header ul {
+            padding: 0;
+            margin: 0;
+        }
+        .header-font {
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 0 10px 0;
+        }
+        .header p {
+            color: #B2DFDB;
+            font-size: 20px;
+            text-align: center;
+            margin: 0;
+        }
+        .image-box img {
+            margin-top: 20px;
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            padding: 10px;
+            border: #006666 solid 2px;
+            box-sizing: border-box;
+        }
+        .card1 {
+            width: 50%;
+        }
+        .card2 {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card2 p {
+            font-size: 16px;
+            line-height: 1.6;
+            border-radius: 6px;
+            margin: 0;
+        }
+        .card2 ul {
+             background-color: white;
+             border-radius: 6px;
+             padding: 0;
+             margin: 0;
+        }
+        .box {
+            width: 90%;
+            margin: 0 auto 20px auto;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+        .image-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            width: 95%;
+            margin: 20px auto;
+        }
+        .box-content {
+            padding: 15px;
+            line-height: 1.6;
+        }
+        .map-container {
+            text-align: center;
+        }
+        .map-container h2 {
+            color: #006666;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+         /* Bottom Footer Banner */
+        .footer-table {
+            width: 100%;
+            border: 0;
+            background-color: #006666;
+            color: white;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }

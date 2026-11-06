@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration - ABC Healthcare</title>
+    <link rel="stylesheet" href="Task-8.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <table class="header-table" id="header-section" cellpadding="0" cellspacing="0">
+        <tr>
+            <!-- TOP LEFT LOGO -->
+            <td class="logo-box" id="logo-container">
+                <a href="index.html" title="Internal Logo Link">
+                    <img src="logo.png" alt="Healthcare Logo" id="main-logo" style="max-width: 100px; height: auto;" />
+                </a>
+                <br>
+                <font size="2" color="#B2DFDB"><b>ABC Healthcare</b></font>
+            </td>
+            
+            <!-- TOP CENTER TO RIGHT BANNER -->
+            <td class="banner-box" id="banner-container">
+                <div class="tooltip-container" id="system-tooltip">
+                    <font color="white" size="6">
+                        <b>URINE TEST STRIP READER SYSTEM</b>
+                    </font>
+                </div>
+                <br>
+                <font color="#B2DFDB" size="4">
+                    ABC Healthcare Centre – Urine Test Centre Banner
+                </font>
+                <br>
+                <font color="#EAF6F6" size="2">
+                    Software Version: <b>v2.4.0</b> | Year: <b>2026</b>
+                </font>
+            </td>
+        </tr>
+    </table>
+
+    <div class="container">
+        <!-- INTRODUCTION -->
+        <section class="intro">
+            <h2>ONLINE PATIENT REGISTRATION</h2>
+            <p>Please enter the patient's details carefully to register for the urine test.</p>
+        </section>
+
+        <!-- REGISTRATION FORM -->
+        <form id="registrationForm" class="registration-form">
+            
+            <!-- TASK 1: FIELDSET 1 - PATIENT DEMOGRAPHICS -->
+            <fieldset>
+                <legend>Patient Demographics</legend>
+                <table class="form-table">
+                    <!-- PATIENT NAME -->
+                    <tr>
+                        <td class="label-col"><label for="patient_name"><b>Patient Name</b></label></td>
+                        <td>
+                            <input type="text" id="patient_name" name="patient_name" placeholder="Enter full name" class="input-text">
+                            <span id="err-patient_name" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- DATE OF BIRTH -->
+                    <tr>
+                        <td class="label-col"><label for="dob"><b>Date of Birth</b></label></td>
+                        <td>
+                            <input type="date" id="dob" name="dob" class="input-date">
+                            <span id="err-dob" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- GENDER -->
+                    <tr>
+                        <td class="label-col"><b>Gender</b></td>
+                        <td>
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" value="male"> Male</label>
+                                <label><input type="radio" name="gender" value="female"> Female</label>
+                                <label><input type="radio" name="gender" value="other"> Other</label>
+                            </div>
+                            <span id="err-gender" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- BLOOD GROUP -->
+                    <tr>
+                        <td class="label-col"><label for="blood_group"><b>Blood Group</b></label></td>
+                        <td>
+                            <select id="blood_group" name="blood_group" class="input-select">
+                                <option value="">-- Select Blood Group --</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                            <span id="err-blood_group" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- ADDRESS -->
+                    <tr>
+                        <td class="label-col"><label for="address"><b>Address</b></label></td>
+                        <td>
+                            <textarea id="address" name="address" placeholder="Enter full address" class="input-textarea"></textarea>
+                            <span id="err-address" class="error-message"></span>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <!-- TASK 1: FIELDSET 2 - CONTACT & APPOINTMENT DETAILS -->
+            <fieldset>
+                <legend>Contact & Appointment Details</legend>
+                <table class="form-table">
+                    <!-- MOBILE NUMBER -->
+                    <tr>
+                        <td class="label-col"><label for="mobile"><b>Mobile Number</b></label></td>
+                        <td>
+                            <input type="tel" id="mobile" name="mobile" maxlength="10" placeholder="Enter 10-digit mobile number" class="input-text">
+                            <span id="err-mobile" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- EMAIL ADDRESS -->
+                    <tr>
+                        <td class="label-col"><label for="email"><b>Email Address</b></label></td>
+                        <td>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" class="input-text">
+                            <span id="err-email" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- DEPARTMENT -->
+                    <tr>
+                        <td class="label-col"><label for="department"><b>Department / Appointment Type</b></label></td>
+                        <td>
+                            <select id="department" name="department" class="input-select">
+                                <option value="">-- Select Department --</option>
+                                <option value="urology">Urology</option>
+                                <option value="general">General Medicine</option>
+                                <option value="nephrology">Nephrology</option>
+                                <option value="pathology">Pathology Laboratory</option>
+                            </select>
+                            <span id="err-department" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- REGISTRATION DATE -->
+                    <tr>
+                        <td class="label-col"><label for="registration_date"><b>Registration Date</b></label></td>
+                        <td>
+                            <input type="date" id="registration_date" name="registration_date" class="input-date">
+                            <span id="err-registration_date" class="error-message"></span>
+                        </td>
+                    </tr>
+
+                    <!-- SYMPTOMS -->
+                    <tr>
+                        <td class="label-col"><b>Select Symptoms</b></td>
+                        <td class="checkbox-group">
+                            <label><input type="checkbox" name="symptom" value="fever"> Fever</label>
+                            <label><input type="checkbox" name="symptom" value="pain"> Abdominal Pain</label>
+                            <label><input type="checkbox" name="symptom" value="burning"> Burning Sensation</label>
+                            <label><input type="checkbox" name="symptom" value="frequent"> Frequent Urination</label>
+                        </td>
+                    </tr>
+
+                    <!-- ACTION BUTTONS -->
+                    <tr class="action-row">
+                        <td colspan="2">
+                            <input type="submit" value="REGISTER PATIENT" class="btn-action">
+                            <input type="reset" value="RESET FORM" class="btn-action">
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+        <!-- FOOTER SECTION -->
+        <table class="footer-table" id="footer-section" cellpadding="15">
+            <tr>
+                <td align="center">
+                    <font color="#ffffff" size="3">
+                        <b>ABC Healthcare Centre</b> | Urine Test Strip Reader System
+                    </font>
+                    <br>
+                    <font color="#B2DFDB" size="2">
+                        <b>Call:</b> +91 12345 67890 &nbsp;|&nbsp; 
+                        <b>Email:</b> support@abchealthcare.com &nbsp;|&nbsp; 
+                        <b>Hospital Name:</b> ABC Healthcare Centre & Research Institute
+                    </font>
+                    <br><br>
+                    <font color="#ffffff" size="1">
+                        © 2026 ABC Healthcare. All Rights Reserved. | System Version 2.4.0
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- LINK ALL 4 JAVASCRIPT FILES IN ORDER -->
+    <script src="Task-8-1-aadya.js"></script>
+    <script src="Task-8-2-aadya.js"></script>
+    <script src="Task-8-3-aadya.js"></script>
+    <script src="Task-8-4-aadya.js"></script>
+</body>
+</html>

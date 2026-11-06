@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Information and Registration - ABC Healthcare</title>
+<style>
+    /* PAGE */
+    body {
+        background-color: #EAF6F6;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px 0;
+    }   
+    /* MAIN CONTAINER */
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    /* HEADER */
+    .header-table {
+        width: 95%;
+        border: 0;
+        background-color: #006666;
+        margin: 15px auto 0 auto;
+        border-collapse: collapse;
+    }
+    .logo-box {
+        background-color: #004d4d;
+        color: #ffffff;
+        padding: 15px;
+        text-align: center;
+        width: 15%;
+        border-right: 2px solid #B2DFDB;
+    }
+    .banner-box {
+        padding: 20px;
+        text-align: center;
+        color: white;
+        width: 85%;
+    }
+    .banner-title {
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .banner-subtitle {
+        color: #B2DFDB;
+        font-size: 18px;
+    }
+    /* INTRO */
+    .intro {
+        background-color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+    }
+    .intro h2 {
+        color: #006666;
+        font-size: 22px;
+        margin: 0 0 10px 0;
+    }
+    .intro p {
+        margin: 0;
+    }
+    /* FORM */
+    .form-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border: 2px solid #006666;
+        margin-top: 30px;
+    }
+    .form-table td,
+    .form-table th {
+        padding: 12px;
+        border: 2px solid #006666;
+        vertical-align: middle;
+    }
+    .label-col {
+        width: 35%;
+    }
+    .section-header {
+        background-color: #B2DFDB;
+        text-align: left;
+    }
+    .section-header th {
+        color: #006666;
+        font-size: 18px;
+    }
+    /* INPUTS */
+    .input-text,
+    .input-number,
+    .input-select {
+        width: 80%;
+        max-width: 300px;
+        padding: 7px;
+        box-sizing: border-box;
+    }
+    /* ERROR MESSAGE */
+    .error {
+        color: #cc0000;
+        font-size: 13px;
+        display: block;
+        margin-top: 5px;
+    }
+    .input-error {
+        border: 2px solid #cc0000;
+    }
+    /* HIGHLIGHT */
+    .highlight-row {
+        background-color: #EAF6F6;
+    }
+    /* BUTTONS */
+    .action-row {
+        background-color: #E0F2F1;
+        text-align: center;
+    }
+    .btn-action {
+        padding: 8px 15px;
+        margin: 0 8px;
+        cursor: pointer;
+        background-color: #006666;
+        color: white;
+        border: 1px solid #004d4d;
+    }
+    .btn-action:hover {
+        background-color: #004d4d;
+    }
+    /* SUCCESS MESSAGE */
+    #successMessage {
+        display: none;
+        background-color: #E0F2F1;
+        color: #006666;
+        border: 2px solid #006666;
+        padding: 15px;
+        margin-top: 30px;
+        text-align: center;
+        font-weight: bold;
+    }
+    /* RESULT PAGE */
+    .result-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border: 2px solid #006666;
+        margin-top: 30px;
+    }
+    .result-table td,
+    .result-table th {
+        padding: 12px;
+        border: 2px solid #006666;
+    }
+    .result-header {
+        background-color: #B2DFDB;
+        color: #006666;
+        font-size: 18px;
+        text-align: left;
+    }
+    .total-row {
+        background-color: #E0F2F1;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .discount-row {
+        background-color: #EAF6F6;
+    }
+    .status {
+        color: #006666;
+        font-weight: bold;
+    }
+    /* FOOTER */
+    .footer-table {
+        width: 100%;
+        border: 0;
+        background-color: #006666;
+        color: white;
+        margin-top: 30px;
+        border-collapse: collapse;
+    }
+    .footer-table td {
+        padding: 15px;
+        text-align: center;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER SECTION -->
+<table class="header-table" id="header-section" cellpadding="0" cellspacing="0">
+    <tr>
+        <!-- LOGO -->
+        <td class="logo-box" id="logo-container">
+            <a href="index.html" title="Internal Logo Link">
+                <img src="logo.png"
+                     alt="Healthcare Logo"
+                     id="main-logo"
+                     style="max-width: 100px; height: auto;">
+            </a>
+            <br>
+            <font size="2" color="#B2DFDB">
+                <b>ABC Healthcare</b>
+            </font>
+        </td>
+        <!-- BANNER -->
+        <td class="banner-box" id="banner-container">
+            <div class="banner-title">
+                URINE TEST STRIP READER SYSTEM
+            </div>
+            <br>
+            <div class="banner-subtitle">
+                ABC Healthcare Centre – Urine Test Centre Banner
+            </div>
+            <br>
+            <font color="#EAF6F6" size="2">
+                Software Version: <b>v2.4.0</b> |
+                Year: <b>2026</b>
+            </font>
+        </td>
+    </tr>
+</table>
+<div class="container">
+    <!-- INTRODUCTION -->
+    <section class="intro">
+        <h2>
+            ONLINE PATIENT REGISTRATION
+        </h2>
+        <p>
+            Enter patient information and calculate the registration amount.
+        </p>
+    </section>
+    <!-- REGISTRATION FORM -->
+    <form id="patientForm" novalidate>
+        <table class="form-table">
+            <!-- PATIENT INFORMATION -->
+            <thead>
+                <tr class="section-header">
+                    <th colspan="2">
+                        Patient Information
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- PATIENT NAME -->
+                <tr>
+                    <td class="label-col">
+                        <b>Patient Name</b>
+                    </td>
+                    <td>
+                        <input type="text"
+                               id="patientName"
+                               name="patientName"
+                               placeholder="Enter full name"
+                               class="input-text">
+                        <span id="nameError" class="error"></span>
+                    </td>
+                </tr>
+                <!-- PATIENT ID -->
+                <tr>
+                    <td class="label-col">
+                        <b>Patient ID</b>
+                    </td>
+                    <td>
+                        <input type="text"
+                               id="patientId"
+                               name="patientId"
+                               placeholder="Enter Patient ID"
+                               class="input-text">
+                        <span id="idError" class="error"></span>
+                    </td>
+                </tr>
+                <!-- AGE -->
+                <tr>
+                    <td class="label-col">
+                        <b>Patient Age</b>
+                    </td>
+                    <td>
+                        <input type="number"
+                               id="patientAge"
+                               name="patientAge"
+                               placeholder="Enter age"
+                               class="input-number">
+                        <span id="ageError" class="error"></span>
+                    </td>
+                </tr>
+                <!-- DEPARTMENT -->
+                <tr class="highlight-row">
+                    <td class="label-col">
+                        <b>Select Department</b>
+                    </td>
+                    <td>
+                        <select id="department"
+                                name="department"
+                                class="input-select">
+                            <option value="">
+                                Select Department
+                            </option>
+                            <option value="General Medicine"
+                                    data-fee="300">
+                                General Medicine - ₹300
+                            </option>
+                            <option value="Urology"
+                                    data-fee="500">
+                                Urology - ₹500
+                            </option>
+                            <option value="Nephrology"
+                                    data-fee="600">
+                                Nephrology - ₹600
+                            </option>
+                        </select>
+                        <span id="departmentError" class="error"></span>
+                    </td>
+                </tr>
+                <!-- TEST -->
+                <tr class="highlight-row">
+                    <td class="label-col">
+                        <b>Select Test</b>
+                    </td>
+                    <td>
+                        <select id="test"
+                                name="test"
+                                class="input-select">
+                            <option value="">
+                                Select Test
+                            </option>
+                            <option value="Urine Routine Test"
+                                    data-fee="150">
+                                Urine Routine Test - ₹150
+                            </option>
+                            <option value="Urine Test Strip Test"
+                                    data-fee="200">
+                                Urine Test Strip Test - ₹200
+                            </option>
+                            <option value="Urine Culture Test"
+                                    data-fee="400">
+                                Urine Culture Test - ₹400
+                            </option>
+                        </select>
+                        <span id="testError" class="error"></span>
+                    </td>
+                </tr>
+                <!-- REGISTRATION FEE -->
+                <tr>
+                    <td class="label-col">
+                        <b>Registration Fee</b>
+                    </td>
+                    <td>
+                        ₹100
+                    </td>
+                </tr>
+                <!-- BUTTONS -->
+                <tr class="action-row">
+                    <td colspan="2">
+                        <input type="submit"
+                               value="REGISTER PATIENT"
+                               class="btn-action">
+                        <input type="reset"
+                               value="RESET FORM"
+                               class="btn-action">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <!-- SUCCESS MESSAGE -->
+    <div id="successMessage">
+        Patient registration details are valid.
+        Registration successful!
+    </div>
+    <!-- FOOTER -->
+    <table class="footer-table"
+           id="footer-section"
+           cellpadding="15">
+        <tr>
+            <td align="center">
+                <font color="#ffffff" size="3">
+                    <b>ABC Healthcare Centre</b>
+                    |
+                    Urine Test Strip Reader System
+                </font>
+                <br><br>
+                <font color="#B2DFDB" size="2">
+                    <b>Call:</b> +91 12345 67890
+                    &nbsp;|&nbsp;
+                    <b>Email:</b> support@abchealthcare.com
+                    &nbsp;|&nbsp;
+                    <b>Hospital Name:</b>
+                    ABC Healthcare Centre & Research Institute
+                </font>
+                <br><br>
+                <font color="#ffffff" size="1">
+                    © 2026 ABC Healthcare.
+                    All Rights Reserved.
+                    |
+                    System Version 2.4.0
+                </font>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- JAVASCRIPT -->
+<script>
+    /* =====================================================
+       TASK 1 - PATIENT INFORMATION AND REGISTRATION
+       ===================================================== */
+    /* -----------------------------------------------------
+       DOM ACCESS
+       ----------------------------------------------------- */
+    let form =
+        document.getElementById("patientForm");
+    let patientName =
+        document.getElementById("patientName");
+    let patientId =
+        document.getElementById("patientId");
+    let patientAge =
+        document.getElementById("patientAge");
+    let department =
+        document.getElementById("department");
+    let test =
+        document.getElementById("test");
+    /* -----------------------------------------------------
+       VALIDATION FUNCTION - PATIENT NAME
+       ----------------------------------------------------- */
+    function validatePatientName() {
+        let name = patientName.value.trim();
+        let namePattern = /^[A-Za-z ]+$/;
+        if (name === "") {
+            document.getElementById("nameError").innerHTML =
+                "Patient name is required.";
+            patientName.classList.add("input-error");
+            return false;
+        }
+        if (!namePattern.test(name)) {
+            document.getElementById("nameError").innerHTML =
+                "Name must contain only letters and spaces.";
+            patientName.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("nameError").innerHTML = "";
+        patientName.classList.remove("input-error");
+        return true;
+    }
+    /* -----------------------------------------------------
+       VALIDATION FUNCTION - PATIENT ID
+       ----------------------------------------------------- */
+    function validatePatientId() {
+        let id = patientId.value.trim();
+        let idPattern = /^P[0-9]{3,}$/;
+        if (id === "") {
+            document.getElementById("idError").innerHTML =
+                "Patient ID is required.";
+            patientId.classList.add("input-error");
+            return false;
+        }
+        if (!idPattern.test(id)) {
+            document.getElementById("idError").innerHTML =
+                "Patient ID must be like P001.";
+            patientId.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("idError").innerHTML = "";
+        patientId.classList.remove("input-error");
+        return true;
+    }
+    /* -----------------------------------------------------
+       VALIDATION FUNCTION - AGE
+       ----------------------------------------------------- */
+    function validateAge() {
+        let age = Number(patientAge.value);
+        if (patientAge.value === "") {
+            document.getElementById("ageError").innerHTML =
+                "Patient age is required.";
+            patientAge.classList.add("input-error");
+            return false;
+        }
+        if (age < 1 || age > 120) {
+            document.getElementById("ageError").innerHTML =
+                "Age must be between 1 and 120.";
+            patientAge.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("ageError").innerHTML = "";
+        patientAge.classList.remove("input-error");
+        return true;
+    }
+    /* -----------------------------------------------------
+       VALIDATION FUNCTION - DEPARTMENT
+       ----------------------------------------------------- */
+    function validateDepartment() {
+        if (department.value === "") {
+            document.getElementById("departmentError").innerHTML =
+                "Please select a department.";
+            department.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("departmentError").innerHTML = "";
+        department.classList.remove("input-error");
+        return true;
+    }
+    /* -----------------------------------------------------
+       VALIDATION FUNCTION - TEST
+       ----------------------------------------------------- */
+    function validateTest() {
+        if (test.value === "") {
+            document.getElementById("testError").innerHTML =
+                "Please select a test.";
+            test.classList.add("input-error");
+            return false;
+        }
+        document.getElementById("testError").innerHTML = "";
+        test.classList.remove("input-error");
+        return true;
+    }
+    /* -----------------------------------------------------
+       FORM SUBMIT EVENT
+       ----------------------------------------------------- */
+    form.addEventListener("submit", function(event) {
+        /*
+           Prevent form from submitting automatically.
+           The form will submit only when all values are valid.
+        */
+        event.preventDefault();
+        /* Run all validation functions */
+        let nameValid =
+            validatePatientName();
+        let idValid =
+            validatePatientId();
+        let ageValid =
+            validateAge();
+        let departmentValid =
+            validateDepartment();
+        let testValid =
+            validateTest();
+        /* -------------------------------------------------
+           CONDITIONAL STATEMENT
+           ------------------------------------------------- */
+        if (
+            nameValid &&
+            idValid &&
+            ageValid &&
+            departmentValid &&
+            testValid
+        ) {
+            /* ---------------------------------------------
+               READ USER VALUES
+               --------------------------------------------- */
+            let name =
+                patientName.value.trim();
+            let id =
+                patientId.value.trim();
+            let age =
+                Number(patientAge.value);
+            let selectedDepartment =
+                department.value;
+            let selectedTest =
+                test.value;
+            /* ---------------------------------------------
+               GET FEES
+               --------------------------------------------- */
+            let consultationFee =
+                Number(
+                    department.options[
+                        department.selectedIndex
+                    ].getAttribute("data-fee")
+                );
+            let testFee =
+                Number(
+                    test.options[
+                        test.selectedIndex
+                    ].getAttribute("data-fee")
+                );
+            let registrationFee = 100;
+            /* ---------------------------------------------
+               CALCULATE TOTAL
+               --------------------------------------------- */
+            let amountBeforeDiscount =
+                registrationFee +
+                consultationFee +
+                testFee;
+            let seniorDiscount = 0;
+            let registrationStatus;
+            /* ---------------------------------------------
+               SENIOR CITIZEN CHECK
+               --------------------------------------------- */
+            if (age >= 60) {
+                seniorDiscount =
+                    (consultationFee + testFee) * 0.10;
+                registrationStatus =
+                    "Senior Citizen - 10% Discount Applied";
+            }
+            else {
+                seniorDiscount = 0;
+                registrationStatus =
+                    "Regular Patient - No Senior Discount";
+            }
+            /* ---------------------------------------------
+               FINAL TOTAL
+               --------------------------------------------- */
+            let totalAmount =
+                amountBeforeDiscount -
+                seniorDiscount;
+            /* ---------------------------------------------
+               SUCCESS MESSAGE
+               --------------------------------------------- */
+            document.getElementById("successMessage").style.display =
+                "block";
+            /* ---------------------------------------------
+               ALERT()
+               --------------------------------------------- */
+            alert(
+                "Registration Successful!\n\n" +
+                "Patient Name: " + name + "\n" +
+                "Patient ID: " + id + "\n" +
+                "Total Amount: ₹" +
+                totalAmount.toFixed(2)
+            );
+            /* ---------------------------------------------
+               CONSOLE.LOG()
+               --------------------------------------------- */
+            console.log("===== PATIENT REGISTRATION =====");
+            console.log("Patient Name: " + name);
+            console.log("Patient ID: " + id);
+            console.log("Patient Age: " + age);
+            console.log("Department: " + selectedDepartment);
+            console.log("Consultation Fee: ₹" + consultationFee);
+            console.log("Selected Test: " + selectedTest);
+            console.log("Test Fee: ₹" + testFee);
+            console.log("Registration Fee: ₹" + registrationFee);
+            console.log(
+                "Amount Before Discount: ₹" +
+                amountBeforeDiscount
+            );
+            console.log(
+                "Senior Discount: ₹" +
+                seniorDiscount
+            );
+            console.log(
+                "Total Amount: ₹" +
+                totalAmount
+            );
+            console.log(
+                "Registration Status: " +
+                registrationStatus
+            );
+            /* ---------------------------------------------
+               CREATE NEXT WEBPAGE
+               --------------------------------------------- */
+            let resultPage = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport"
+                          content="width=device-width, initial-scale=1.0">
+                    <title>
+                        Patient Registration Result
+                    </title>
+                    <style>
+                        body {
+                            background-color: #EAF6F6;
+                            font-family: Arial, sans-serif;
+                            margin: 0;
+                            padding: 20px 0;
+                        }
+                        .container {
+                            width: 90%;
+                            margin: 0 auto;
+                        }
+                        .header-table {
+                            width: 95%;
+                            border: 0;
+                            background-color: #006666;
+                            margin: 15px auto 0 auto;
+                            border-collapse: collapse;
+                        }
+                        .logo-box {
+                            background-color: #004d4d;
+                            color: white;
+                            padding: 15px;
+                            text-align: center;
+                            width: 15%;
+                            border-right: 2px solid #B2DFDB;
+                        }
+                        .banner-box {
+                            padding: 20px;
+                            text-align: center;
+                            color: white;
+                            width: 85%;
+                        }
+                        .banner-title {
+                            font-size: 28px;
+                            font-weight: bold;
+                        }
+                        .subtitle {
+                            color: #B2DFDB;
+                            font-size: 18px;
+                        }
+                        .intro {
+                            background-color: white;
+                            text-align: center;
+                            padding: 15px;
+                            margin-top: 30px;
+                        }
+                        .intro h2 {
+                            color: #006666;
+                        }
+                        .result-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            background-color: white;
+                            border: 2px solid #006666;
+                            margin-top: 30px;
+                        }
+                        .result-table td,
+                        .result-table th {
+                            padding: 12px;
+                            border: 2px solid #006666;
+                        }
+                        .section-header {
+                            background-color: #B2DFDB;
+                            color: #006666;
+                            text-align: left;
+                            font-size: 18px;
+                        }
+                        .discount-row {
+                            background-color: #EAF6F6;
+                        }
+                        .total-row {
+                            background-color: #E0F2F1;
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                        .status {
+                            color: #006666;
+                            font-weight: bold;
+                        }
+                        .footer-table {
+                            width: 100%;
+                            border: 0;
+                            background-color: #006666;
+                            color: white;
+                            margin-top: 30px;
+                            border-collapse: collapse;
+                        }
+                        .back-button {
+                            padding: 8px 15px;
+                            background-color: #006666;
+                            color: white;
+                            border: 1px solid #004d4d;
+                            cursor: pointer;
+                            margin-top: 20px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <!-- HEADER -->
+                    <table class="header-table">
+                        <tr>
+                            <td class="logo-box">
+                                <a href="index.html"
+                                   title="Internal Logo Link">
+                                    <img src="logo.png"
+                                         alt="Healthcare Logo"
+                                         style="max-width: 100px; height: auto;">
+                                </a>
+                                <br>
+                                <font size="2" color="#B2DFDB">
+                                    <b>ABC Healthcare</b>
+                                </font>
+                            </td>
+                            <td class="banner-box">
+                                <div class="banner-title">
+                                    URINE TEST STRIP READER SYSTEM
+                                </div>
+                                <br>
+                                <div class="subtitle">
+                                    ABC Healthcare Centre –
+                                    Urine Test Centre Banner
+                                </div>
+                                <br>
+                                <font color="#EAF6F6" size="2">
+                                    Software Version:
+                                    <b>v2.4.0</b>
+                                    |
+                                    Year:
+                                    <b>2026</b>
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="container">
+                        <!-- RESULT INTRO -->
+                        <section class="intro">
+                            <h2>
+                                PATIENT REGISTRATION DETAILS
+                            </h2>
+                            <p>
+                                Registration and fee calculation
+                                completed successfully.
+                            </p>
+                        </section>
+                        <!-- PATIENT DETAILS -->
+                        <table class="result-table">
+                            <tr class="section-header">
+                                <th colspan="2">
+                                    Patient Information
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Patient Name</b>
+                                </td>
+                                <td>
+                                    ${name}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Patient ID</b>
+                                </td>
+                                <td>
+                                    ${id}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Patient Age</b>
+                                </td>
+                                <td>
+                                    ${age}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Department</b>
+                                </td>
+                                <td>
+                                    ${selectedDepartment}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Selected Test</b>
+                                </td>
+                                <td>
+                                    ${selectedTest}
+                                </td>
+                            </tr>
+                            <!-- CHARGES -->
+                            <tr class="section-header">
+                                <th colspan="2">
+                                    Registration Charges
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Registration Fee</b>
+                                </td>
+                                <td>
+                                    ₹${registrationFee.toFixed(2)}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Consultation Fee</b>
+                                </td>
+                                <td>
+                                    ₹${consultationFee.toFixed(2)}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>${selectedTest}</b>
+                                </td>
+                                <td>
+                                    ₹${testFee.toFixed(2)}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Amount Before Discount</b>
+                                </td>
+                                <td>
+                                    ₹${amountBeforeDiscount.toFixed(2)}
+                                </td>
+                            </tr>
+                            <tr class="discount-row">
+                                <td>
+                                    <b>Senior Citizen Discount</b>
+                                </td>
+                                <td>
+                                    ₹${seniorDiscount.toFixed(2)}
+                                </td>
+                            </tr>
+                            <!-- TOTAL -->
+                            <tr class="total-row">
+                                <td>
+                                    TOTAL AMOUNT PAYABLE
+                                </td>
+                                <td>
+                                    ₹${totalAmount.toFixed(2)}
+                                </td>
+                            </tr>
+                            <!-- STATUS -->
+                            <tr>
+                                <td>
+                                    <b>Registration Status</b>
+                                </td>
+                                <td class="status">
+                                    ${registrationStatus}
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- BACK BUTTON -->
+                        <div style="text-align:center;">
+                            <button class="back-button"
+                                    onclick="history.back()">
+                                BACK TO REGISTRATION
+                            </button>
+                        </div>
+                        <!-- FOOTER -->
+                        <table class="footer-table">
+                            <tr>
+                                <td align="center">
+                                    <font color="#ffffff" size="3">
+                                        <b>ABC Healthcare Centre</b>
+                                        |
+                                        Urine Test Strip Reader System
+                                    </font>
+                                    <br><br>
+                                    <font color="#B2DFDB" size="2">
+                                        <b>Call:</b>
+                                        +91 12345 67890
+                                        &nbsp;|&nbsp;
+                                        <b>Email:</b>
+                                        support@abchealthcare.com
+                                        &nbsp;|&nbsp;
+                                        <b>Hospital Name:</b>
+                                        ABC Healthcare Centre &
+                                        Research Institute
+                                    </font>
+                                    <br><br>
+                                    <font color="#ffffff" size="1">
+                                        © 2026 ABC Healthcare.
+                                        All Rights Reserved.
+                                        |
+                                        System Version 2.4.0
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </body>
+                </html>
+            `;
+            /* ---------------------------------------------
+               DOCUMENT.WRITE()
+               --------------------------------------------- */
+            document.open();
+            document.write(resultPage);
+            document.close();
+        }
+        else {
+            /*
+               INVALID FORM
+               The page does NOT move to the result page.
+               Error messages remain visible beside the fields.
+            */
+            document.getElementById("successMessage").style.display =
+                "none";
+            console.log(
+                "Registration failed. Please correct the errors."
+            );
+        }
+    });
+    /* -----------------------------------------------------
+       RESET FORM
+       ----------------------------------------------------- */
+    form.addEventListener("reset", function() {
+        document.getElementById("nameError").innerHTML = "";
+        document.getElementById("idError").innerHTML = "";
+        document.getElementById("ageError").innerHTML = "";
+        document.getElementById("departmentError").innerHTML = "";
+        document.getElementById("testError").innerHTML = "";
+        document.getElementById("successMessage").style.display =
+            "none";
+        patientName.classList.remove("input-error");
+        patientId.classList.remove("input-error");
+        patientAge.classList.remove("input-error");
+        department.classList.remove("input-error");
+        test.classList.remove("input-error");
+    });
+</script>
+</body>
+</html>
